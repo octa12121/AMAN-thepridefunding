@@ -70,8 +70,7 @@ export const tradingConfig: TradingConfig = {
       title: "MY PAYOUT",
       subtitle: "first payout",
       badge: "THE-PRIDE FUNDING TESTIMONIAL",
-      tags: ["Wizense G", "MUMBAI"]
-      tags: ["Wizense G", "MUMBAUI"],
+      tags: ["Wizense G", "MUMBAI"],
     },
     {
       id: "3",
