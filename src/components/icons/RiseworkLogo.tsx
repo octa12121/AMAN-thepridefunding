@@ -15,7 +15,7 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Exact Rise logo gradient matching the image */}
+      {/* Perfect Rise logo gradient */}
       <defs>
         <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
@@ -30,7 +30,7 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       {/* Perfect circle */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* Rise arrow - exact proportions */}
+      {/* Rise arrow - exact design */}
       <g
         stroke="white"
         strokeWidth="6"
@@ -38,21 +38,16 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         strokeLinejoin="round"
         fill="none"
       >
-        {/* Main diagonal line */}
         <path d="M28 72 L72 28" />
-
-        {/* Arrow head horizontal */}
         <path d="M56 28 L72 28" />
-
-        {/* Arrow head vertical */}
         <path d="M72 28 L72 44" />
       </g>
     </svg>
   );
 };
 
-// Alternative with perfect proportions for small sizes
-export const RiseworkLogoCompact = ({
+// Simplified version for better performance at small sizes
+export const RiseworkLogoSimple = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
@@ -78,40 +73,6 @@ export const RiseworkLogoCompact = ({
       >
         <path d="M7 17L17 7" />
         <path d="M10 7h7v7" />
-      </svg>
-    </div>
-  );
-};
-
-// Clean version for any size
-export const RiseworkLogoSimple = ({
-  className,
-  size = 32,
-}: RiseworkLogoProps) => {
-  return (
-    <div
-      className={cn("rounded-full flex items-center justify-center", className)}
-      style={{
-        width: size,
-        height: size,
-        background:
-          "linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)",
-      }}
-    >
-      <svg
-        width={size * 0.55}
-        height={size * 0.55}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M7 17L17 7M17 7H10M17 7V14"
-          stroke="white"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
       </svg>
     </div>
   );
