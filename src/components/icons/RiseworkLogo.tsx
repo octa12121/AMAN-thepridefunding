@@ -15,7 +15,7 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Exact Rise logo gradient */}
+      {/* Exact Rise logo gradient from the provided image */}
       <defs>
         <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
@@ -27,71 +27,32 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         </linearGradient>
       </defs>
 
-      {/* Perfect circle */}
+      {/* Perfect circle background */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* Rise arrow - matching exact proportions from image */}
+      {/* Rise arrow - exact design matching the image */}
       <g
         stroke="white"
-        strokeWidth="5.5"
+        strokeWidth="6"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       >
-        {/* Main diagonal line */}
-        <path d="M29 71 L71 29" />
+        {/* Main diagonal line from bottom-left to top-right */}
+        <path d="M28 72 L72 28" />
 
-        {/* Arrow head horizontal */}
-        <path d="M57 29 L71 29" />
+        {/* Arrow head - horizontal line */}
+        <path d="M56 28 L72 28" />
 
-        {/* Arrow head vertical */}
-        <path d="M71 29 L71 43" />
+        {/* Arrow head - vertical line */}
+        <path d="M72 28 L72 44" />
       </g>
     </svg>
   );
 };
 
-// CSS-based version for perfect rendering at all sizes
-export const RiseworkLogoCSS = ({
-  className,
-  size = 32,
-}: RiseworkLogoProps) => {
-  return (
-    <div
-      className={cn("rounded-full relative", className)}
-      style={{
-        width: size,
-        height: size,
-        background:
-          "linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)",
-      }}
-    >
-      <svg
-        className="absolute inset-0"
-        width="100%"
-        height="100%"
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          stroke="white"
-          strokeWidth="5.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        >
-          <path d="M29 71 L71 29" />
-          <path d="M57 29 L71 29" />
-          <path d="M71 29 L71 43" />
-        </g>
-      </svg>
-    </div>
-  );
-};
-
-// Ultra-simple version using standard arrow icon
-export const RiseworkLogoSimple = ({
+// Optimized version for better performance
+export const RiseworkLogoOptimized = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
@@ -117,6 +78,40 @@ export const RiseworkLogoSimple = ({
       >
         <path d="M7 17L17 7" />
         <path d="M10 7h7v7" />
+      </svg>
+    </div>
+  );
+};
+
+// Simple fallback version
+export const RiseworkLogoSimple = ({
+  className,
+  size = 32,
+}: RiseworkLogoProps) => {
+  return (
+    <div
+      className={cn("rounded-full flex items-center justify-center", className)}
+      style={{
+        width: size,
+        height: size,
+        background:
+          "linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)",
+      }}
+    >
+      <svg
+        width={size * 0.55}
+        height={size * 0.55}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 17L17 7M17 7H10M17 7V14"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </div>
   );
