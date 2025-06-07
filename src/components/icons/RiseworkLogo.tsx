@@ -15,7 +15,7 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Perfect Rise logo gradient */}
+      {/* Rise logo gradient exactly matching the provided image */}
       <defs>
         <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
@@ -27,10 +27,10 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         </linearGradient>
       </defs>
 
-      {/* Perfect circle */}
+      {/* Perfect circle background */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* Rise arrow - exact design */}
+      {/* Rise arrow - exact design from the image */}
       <g
         stroke="white"
         strokeWidth="6"
@@ -38,15 +38,20 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         strokeLinejoin="round"
         fill="none"
       >
+        {/* Main diagonal line from bottom-left to top-right */}
         <path d="M28 72 L72 28" />
+
+        {/* Arrow head - horizontal line */}
         <path d="M56 28 L72 28" />
+
+        {/* Arrow head - vertical line */}
         <path d="M72 28 L72 44" />
       </g>
     </svg>
   );
 };
 
-// Simplified version for better performance at small sizes
+// Simplified version for smaller sizes
 export const RiseworkLogoSimple = ({
   className,
   size = 32,
