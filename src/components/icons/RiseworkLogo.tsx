@@ -15,48 +15,39 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Risework-inspired logo design */}
-      {/* Background circle */}
-      <circle cx="50" cy="50" r="45" fill="currentColor" opacity="0.1" />
+      {/* Gradient background circle matching the Rise logo */}
+      <defs>
+        <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{ stopColor: "#6366f1", stopOpacity: 1 }} />
+          <stop offset="50%" style={{ stopColor: "#8b5cf6", stopOpacity: 1 }} />
+          <stop
+            offset="100%"
+            style={{ stopColor: "#3b82f6", stopOpacity: 1 }}
+          />
+        </linearGradient>
+      </defs>
 
-      {/* Main "R" letterform */}
+      {/* Main circular background */}
+      <circle cx="50" cy="50" r="45" fill="url(#riseGradient)" />
+
+      {/* White arrow pointing up and to the right */}
       <path
-        d="M25 25 L25 75 M25 25 L45 25 C52 25 55 28 55 35 C55 42 52 45 45 45 L25 45 M45 45 L55 75"
-        stroke="currentColor"
-        strokeWidth="4"
+        d="M30 65 L65 30 M65 30 L65 50 M65 30 L45 30"
+        stroke="white"
+        strokeWidth="5"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       />
 
-      {/* Upward arrow/growth symbol */}
-      <path
-        d="M65 65 L65 35 M60 40 L65 35 L70 40"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-
-      {/* Connection dots representing network/finance */}
-      <circle cx="75" cy="50" r="2" fill="currentColor" />
-      <circle cx="82" cy="42" r="1.5" fill="currentColor" />
-      <circle cx="82" cy="58" r="1.5" fill="currentColor" />
-
-      {/* Connecting lines */}
-      <path
-        d="M77 50 L80 42 M77 50 L80 58"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.6"
-      />
+      {/* Additional arrow head for emphasis */}
+      <path d="M50 35 L65 30 L60 45" fill="white" />
     </svg>
   );
 };
 
-// Alternative simplified version
-export const RiseworkLogoSimple = ({
+// Alternative version with exact arrow from the image
+export const RiseworkLogoAlt = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
@@ -64,25 +55,80 @@ export const RiseworkLogoSimple = ({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Simplified "Rise" concept with upward trend */}
-      <rect x="5" y="30" width="6" height="8" rx="1" fill="currentColor" />
-      <rect x="13" y="25" width="6" height="13" rx="1" fill="currentColor" />
-      <rect x="21" y="20" width="6" height="18" rx="1" fill="currentColor" />
-      <rect x="29" y="15" width="6" height="23" rx="1" fill="currentColor" />
+      {/* Gradient background */}
+      <defs>
+        <radialGradient id="riseRadialGradient" cx="50%" cy="30%" r="70%">
+          <stop offset="0%" style={{ stopColor: "#8b5cf6", stopOpacity: 1 }} />
+          <stop offset="50%" style={{ stopColor: "#6366f1", stopOpacity: 1 }} />
+          <stop
+            offset="100%"
+            style={{ stopColor: "#3b82f6", stopOpacity: 1 }}
+          />
+        </radialGradient>
+      </defs>
 
-      {/* Arrow pointing up */}
-      <path
-        d="M32 12 L32 8 M29 10 L32 7 L35 10"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      {/* Main circle */}
+      <circle cx="50" cy="50" r="45" fill="url(#riseRadialGradient)" />
+
+      {/* Arrow design matching the Rise logo */}
+      <g transform="translate(50,50)">
+        {/* Arrow body */}
+        <path
+          d="M-15 10 L12 -12"
+          stroke="white"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+
+        {/* Arrow head */}
+        <path
+          d="M5 -12 L12 -12 L12 -5"
+          stroke="white"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </g>
     </svg>
+  );
+};
+
+// Simple version that closely matches the provided image
+export const RiseworkLogoSimple = ({
+  className,
+  size = 32,
+}: RiseworkLogoProps) => {
+  return (
+    <div
+      className={cn("rounded-full flex items-center justify-center", className)}
+      style={{
+        width: size,
+        height: size,
+        background:
+          "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #3b82f6 100%)",
+      }}
+    >
+      <svg
+        width={size * 0.6}
+        height={size * 0.6}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 17L17 7M17 7H10M17 7V14"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   );
 };
