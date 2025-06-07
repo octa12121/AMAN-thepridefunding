@@ -15,118 +15,121 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Gradient definitions matching the exact Rise logo colors */}
+      {/* Exact gradient from the Rise logo */}
       <defs>
-        <radialGradient id="riseGradient" cx="30%" cy="30%" r="80%">
+        <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#8b5cf6", stopOpacity: 1 }} />
-          <stop offset="40%" style={{ stopColor: "#6366f1", stopOpacity: 1 }} />
+          <stop offset="50%" style={{ stopColor: "#6366f1", stopOpacity: 1 }} />
           <stop
             offset="100%"
             style={{ stopColor: "#3b82f6", stopOpacity: 1 }}
           />
-        </radialGradient>
+        </linearGradient>
       </defs>
 
-      {/* Main circular background */}
+      {/* Perfect circle background */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* White arrow design exactly matching the Rise logo */}
-      <g>
-        {/* Main diagonal arrow line */}
-        <path
-          d="M25 75 L75 25"
-          stroke="white"
-          strokeWidth="8"
-          strokeLinecap="round"
-        />
+      {/* White arrow exactly like in the Rise logo */}
+      <g
+        stroke="white"
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      >
+        {/* Diagonal line from bottom-left to top-right */}
+        <path d="M28 72 L72 28" />
 
-        {/* Arrow head - top horizontal line */}
-        <path
-          d="M55 25 L75 25"
-          stroke="white"
-          strokeWidth="8"
-          strokeLinecap="round"
-        />
+        {/* Horizontal line forming the arrow head */}
+        <path d="M55 28 L72 28" />
 
-        {/* Arrow head - right vertical line */}
-        <path
-          d="M75 25 L75 45"
-          stroke="white"
-          strokeWidth="8"
-          strokeLinecap="round"
-        />
+        {/* Vertical line forming the arrow head */}
+        <path d="M72 28 L72 45" />
       </g>
     </svg>
   );
 };
 
-// Alternative with exact proportions
-export const RiseworkLogoAlt = ({
+// CSS-based version for perfect rendering
+export const RiseworkLogoCSS = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
   return (
     <div
-      className={cn(
-        "rounded-full flex items-center justify-center relative overflow-hidden",
-        className,
-      )}
+      className={cn("rounded-full relative", className)}
       style={{
         width: size,
         height: size,
         background:
-          "radial-gradient(circle at 30% 30%, #8b5cf6 0%, #6366f1 40%, #3b82f6 100%)",
+          "linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%)",
       }}
     >
-      {/* Arrow using CSS for perfect positioning */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Arrow using absolute positioning for pixel-perfect alignment */}
+      <div
+        className="absolute"
+        style={{
+          top: "20%",
+          left: "20%",
+          width: "60%",
+          height: "60%",
+        }}
+      >
         <svg
-          width={size * 0.7}
-          height={size * 0.7}
-          viewBox="0 0 24 24"
+          width="100%"
+          height="100%"
+          viewBox="0 0 100 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M7 17L17 7M17 7H10M17 7V14"
+          <g
             stroke="white"
-            strokeWidth="2.5"
+            strokeWidth="12"
             strokeLinecap="round"
             strokeLinejoin="round"
-          />
+            fill="none"
+          >
+            <path d="M15 85 L85 15" />
+            <path d="M60 15 L85 15" />
+            <path d="M85 15 L85 40" />
+          </g>
         </svg>
       </div>
     </div>
   );
 };
 
-// Simple version for small icons
+// Simplified version using a single arrow icon
 export const RiseworkLogoSimple = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
   return (
     <div
-      className={cn("rounded-full", className)}
+      className={cn("rounded-full flex items-center justify-center", className)}
       style={{
         width: size,
         height: size,
         background:
           "linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
       }}
     >
-      <div
-        style={{
-          width: "60%",
-          height: "60%",
-          background: "white",
-          clipPath:
-            "polygon(0% 100%, 70% 30%, 70% 60%, 85% 60%, 85% 15%, 40% 15%, 40% 30%, 0% 70%)",
-        }}
-      />
+      <svg
+        width={size * 0.5}
+        height={size * 0.5}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 17L17 7M17 7H10M17 7V14"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     </div>
   );
 };
