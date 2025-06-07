@@ -82,7 +82,7 @@ export const TestimonialCarousel = ({
                   : "bg-white",
               )}
             >
-              {card.type === 'testimonial' ? (
+              {card.type === "testimonial" ? (
                 <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden relative">
                   <img
                     src={card.image || "/placeholder.svg"}
@@ -92,14 +92,19 @@ export const TestimonialCarousel = ({
                   <div
                     className="absolute -inset-2 bg-black/20"
                     style={{
-                      backgroundImage: card.image ? `url(${card.image})` : undefined,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      backgroundSize: 'cover'
+                      backgroundImage: card.image
+                        ? `url(${card.image})`
+                        : undefined,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
                     }}
                   />
                 </div>
               ) : (
+                <div className="p-6">
+                  {card.badge && (
+                    <Badge className="mb-4 bg-blue-600 hover:bg-blue-700 text-xs font-medium">
                       {card.badge}
                     </Badge>
                   )}
@@ -108,18 +113,30 @@ export const TestimonialCarousel = ({
                       {card.title}
                     </h3>
                     <div className="text-4xl font-bold">
-                      {card.amount} <span className={cn("font-normal", card.amount === "$5125" ? "text-2xl" : "text-sm")}>{card.subtitle}</span>
-                    </div>
+                      {card.amount}{" "}
+                      <span
+                        className={cn(
+                          "font-normal",
+                          card.amount === "$5125" ? "text-2xl" : "text-sm",
+                        )}
+                      >
+                        {card.subtitle}
+                      </span>
                     </div>
                     {card.tags && (
                       <div className="flex gap-2 mt-4">
                         {card.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="text-sm opacity-80 flex items-center gap-1">
-                            {(tag === 'Texas' || tag === 'MUMBAUI') && '🤠'} {tag}
+                          <span
+                            key={tagIndex}
+                            className="text-sm opacity-80 flex items-center gap-1"
+                          >
+                            {(tag === "Texas" || tag === "MUMBAUI") && "🤠"}{" "}
+                            {tag}
                           </span>
                         ))}
                       </div>
                     )}
+                  </div>
                 </div>
               )}
             </Card>
