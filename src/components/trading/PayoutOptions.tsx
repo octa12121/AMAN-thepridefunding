@@ -33,17 +33,25 @@ export const PayoutOptions = ({
   stats,
 }: PayoutOptionsProps) => {
   return (
-    <div className="w-full py-16 bg-gradient-to-b from-blue-900 to-blue-950 text-white relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-        <div className="w-full h-full rounded-full border-2 border-white transform rotate-12" />
+    <div
+      className="w-full py-16 relative overflow-hidden"
+      style={{ backgroundColor: "rgb(8, 7, 27)" }}
+    >
+      {/* Background gradient blur effects like thepride-funding.com */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 opacity-20">
+        <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-3xl" />
       </div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 opacity-5">
-        <div className="w-full h-full rounded-full bg-white transform -rotate-12" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 opacity-15">
+        <div className="w-full h-full rounded-full bg-gradient-to-l from-purple-500 to-blue-600 blur-3xl" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
+        <div className="w-full h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 blur-2xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <h2 className="text-5xl font-bold text-center mb-12">{title}</h2>
+        <h2 className="text-5xl font-bold text-center mb-12 text-white">
+          {title}
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {options.map((option) => {
@@ -53,10 +61,17 @@ export const PayoutOptions = ({
             return (
               <Card
                 key={option.id}
-                className="bg-blue-800/50 border-blue-700 backdrop-blur-sm p-8 hover:bg-blue-800/70 transition-all duration-300"
+                className="border-0 backdrop-blur-sm p-8 hover:scale-105 transition-all duration-300 group"
+                style={{
+                  backgroundColor: "rgba(42, 43, 49, 0.41)",
+                  borderColor: "rgba(132, 154, 170, 0.52)",
+                }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="bg-blue-600 p-3 rounded-full">
+                  <div
+                    className="p-3 rounded-full group-hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: "rgb(10, 124, 255)" }}
+                  >
                     {option.icon === "bank" ? (
                       <RiseworkLogo className="h-8 w-8 text-white" size={32} />
                     ) : (
@@ -67,7 +82,7 @@ export const PayoutOptions = ({
                     <h3 className="text-2xl font-bold mb-3 text-white">
                       {option.title}
                     </h3>
-                    <p className="text-blue-100 mb-4 leading-relaxed">
+                    <p className="text-gray-300 mb-4 leading-relaxed text-lg">
                       {option.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -75,7 +90,11 @@ export const PayoutOptions = ({
                         <Badge
                           key={index}
                           variant="secondary"
-                          className="bg-blue-600/30 text-blue-100 hover:bg-blue-600/50"
+                          className="text-white hover:scale-105 transition-transform duration-200"
+                          style={{
+                            backgroundColor: "rgb(24, 160, 237)",
+                            color: "white",
+                          }}
                         >
                           {feature}
                         </Badge>
@@ -85,10 +104,19 @@ export const PayoutOptions = ({
                 </div>
 
                 {/* Mock interface preview */}
-                <div className="mt-6 bg-blue-900/50 rounded-lg p-4 border border-blue-600/30">
+                <div
+                  className="mt-6 rounded-lg p-4 border backdrop-blur-sm"
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.3)",
+                    borderColor: "rgba(132, 154, 170, 0.3)",
+                  }}
+                >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                      <div
+                        className="w-6 h-6 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "rgb(10, 124, 255)" }}
+                      >
                         {option.id === "rise" ? (
                           <RiseworkLogo
                             className="h-3 w-3 text-white"
@@ -98,7 +126,7 @@ export const PayoutOptions = ({
                           <Icon className="h-3 w-3 text-white" />
                         )}
                       </div>
-                      <span className="text-sm text-blue-200">
+                      <span className="text-sm text-gray-300">
                         {option.id === "rise"
                           ? "Risework Transfer"
                           : "Crypto Wallet"}
@@ -112,7 +140,7 @@ export const PayoutOptions = ({
                   </div>
                   <div className="flex justify-between items-center">
                     <div>
-                      <div className="text-sm text-blue-300">
+                      <div className="text-sm text-gray-400">
                         {option.id === "rise"
                           ? "Total Amount"
                           : "Crypto Amount"}
@@ -122,12 +150,12 @@ export const PayoutOptions = ({
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm text-blue-300">
+                      <div className="text-sm text-gray-400">
                         {option.id === "rise"
                           ? "Transfer ID"
                           : "Transaction Hash"}
                       </div>
-                      <div className="text-xs text-blue-200 font-mono">
+                      <div className="text-xs text-gray-300 font-mono">
                         {option.id === "rise" ? "TXN789456" : "0x7a9b...c4e1"}
                       </div>
                     </div>
@@ -139,35 +167,53 @@ export const PayoutOptions = ({
         </div>
 
         {/* Stats section */}
-        <Card className="bg-blue-800/30 border-blue-700 backdrop-blur-sm p-8">
+        <Card
+          className="border-0 backdrop-blur-sm p-8"
+          style={{
+            backgroundColor: "rgba(42, 43, 49, 0.41)",
+            borderColor: "rgba(132, 154, 170, 0.52)",
+          }}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <Shield className="h-12 w-12 text-blue-400 mx-auto mb-3" />
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <Shield
+                className="h-12 w-12 mx-auto mb-3"
+                style={{ color: "rgb(24, 160, 237)" }}
+              />
               <div className="text-2xl font-bold text-white mb-1">
                 {stats.payoutFrequency}
               </div>
-              <div className="text-blue-300 text-sm">Payout Schedule</div>
+              <div className="text-gray-400 text-sm">Payout Schedule</div>
             </div>
-            <div className="text-center">
-              <Clock className="h-12 w-12 text-blue-400 mx-auto mb-3" />
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <Clock
+                className="h-12 w-12 mx-auto mb-3"
+                style={{ color: "rgb(24, 160, 237)" }}
+              />
               <div className="text-2xl font-bold text-white mb-1">
                 {stats.avgResponseTime}
               </div>
-              <div className="text-blue-300 text-sm">Average Response Time</div>
+              <div className="text-gray-400 text-sm">Average Response Time</div>
             </div>
-            <div className="text-center">
-              <Users className="h-12 w-12 text-blue-400 mx-auto mb-3" />
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <Users
+                className="h-12 w-12 mx-auto mb-3"
+                style={{ color: "rgb(24, 160, 237)" }}
+              />
               <div className="text-2xl font-bold text-white mb-1">
                 {stats.customerSupport}
               </div>
-              <div className="text-blue-300 text-sm">Customer Support</div>
+              <div className="text-gray-400 text-sm">Customer Support</div>
             </div>
-            <div className="text-center">
-              <DollarSign className="h-12 w-12 text-blue-400 mx-auto mb-3" />
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <DollarSign
+                className="h-12 w-12 mx-auto mb-3"
+                style={{ color: "rgb(24, 160, 237)" }}
+              />
               <div className="text-2xl font-bold text-white mb-1">
                 {stats.totalPaidOut}
               </div>
-              <div className="text-blue-300 text-sm">Total Paid Out</div>
+              <div className="text-gray-400 text-sm">Total Paid Out</div>
             </div>
           </div>
         </Card>
