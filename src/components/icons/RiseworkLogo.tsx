@@ -15,7 +15,7 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Perfect Rise logo gradient matching the image */}
+      {/* Exact Rise logo gradient from the image */}
       <defs>
         <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
@@ -27,46 +27,43 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         </linearGradient>
       </defs>
 
-      {/* Perfect circle */}
+      {/* Perfect circle background */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* Rise arrow - exact design */}
+      {/* Rise arrow - exact proportions from the image */}
       <g
         stroke="white"
-        strokeWidth="5.5"
+        strokeWidth="6"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       >
-        {/* Main diagonal arrow line */}
-        <path d="M30 70 L70 30" />
+        {/* Main diagonal line from bottom-left to top-right */}
+        <path d="M28 72 L72 28" />
 
         {/* Arrow head - horizontal line */}
-        <path d="M56 30 L70 30" />
+        <path d="M55 28 L72 28" />
 
         {/* Arrow head - vertical line */}
-        <path d="M70 30 L70 44" />
+        <path d="M72 28 L72 45" />
       </g>
     </svg>
   );
 };
 
-// Alternative version using exact icon from the image
-export const RiseworkLogoExact = ({
+// Alternative version for better small size rendering
+export const RiseworkLogoClean = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
   return (
     <div
-      className={cn("rounded-full", className)}
+      className={cn("rounded-full flex items-center justify-center", className)}
       style={{
         width: size,
         height: size,
         background:
           "linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
       }}
     >
       <svg
@@ -91,11 +88,13 @@ export const RiseworkLogoExact = ({
   );
 };
 
-// Simple clean version
+// Simplified version that works well at any size
 export const RiseworkLogoSimple = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
+  const iconSize = Math.max(12, size * 0.5);
+
   return (
     <div
       className={cn("rounded-full flex items-center justify-center", className)}
@@ -107,8 +106,8 @@ export const RiseworkLogoSimple = ({
       }}
     >
       <svg
-        width={size * 0.55}
-        height={size * 0.55}
+        width={iconSize}
+        height={iconSize}
         viewBox="0 0 24 24"
         fill="none"
         stroke="white"
