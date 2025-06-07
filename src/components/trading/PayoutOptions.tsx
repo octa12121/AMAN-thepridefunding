@@ -8,6 +8,7 @@ import {
   Users,
   DollarSign,
 } from "lucide-react";
+import { RiseworkLogo } from "@/components/icons/RiseworkLogo";
 import { PayoutOption } from "@/lib/trading-config";
 
 interface PayoutOptionsProps {
@@ -22,7 +23,7 @@ interface PayoutOptionsProps {
 }
 
 const iconMap = {
-  bank: Banknote,
+  bank: RiseworkLogo,
   crypto: Bitcoin,
 };
 
@@ -56,7 +57,11 @@ export const PayoutOptions = ({
               >
                 <div className="flex items-start gap-4">
                   <div className="bg-blue-600 p-3 rounded-full">
-                    <Icon className="h-8 w-8 text-white" />
+                    {option.icon === "bank" ? (
+                      <RiseworkLogo className="h-8 w-8 text-white" size={32} />
+                    ) : (
+                      <Icon className="h-8 w-8 text-white" />
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold mb-3 text-white">
@@ -84,11 +89,18 @@ export const PayoutOptions = ({
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                        <Icon className="h-3 w-3 text-white" />
+                        {option.id === "rise" ? (
+                          <RiseworkLogo
+                            className="h-3 w-3 text-white"
+                            size={12}
+                          />
+                        ) : (
+                          <Icon className="h-3 w-3 text-white" />
+                        )}
                       </div>
                       <span className="text-sm text-blue-200">
                         {option.id === "rise"
-                          ? "Bank Transfer"
+                          ? "Risework Transfer"
                           : "Crypto Wallet"}
                       </span>
                     </div>
