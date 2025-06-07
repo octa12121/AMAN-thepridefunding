@@ -171,6 +171,7 @@ export const TestimonialCarousel = ({
                             className="text-sm opacity-80 flex items-center gap-1 text-gray-300"
                           >
                             {(tag === "Texas" || tag === "MUMBAUI") && "🤠"}{" "}
+                            {(tag === "Texas" || tag === "MUMBAI") && "🤠"}{" "}
                             {tag}
                           </span>
                         ))}
