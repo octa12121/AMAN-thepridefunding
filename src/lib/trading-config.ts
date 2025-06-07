@@ -78,8 +78,7 @@ export const tradingConfig: TradingConfig = {
       amount: "$3,100",
       title: "FAILED 9TIMES BEFORE\nMY 1ST PAYOUT",
       subtitle: "first payout",
-      tags: ["Matthew"]
-    }
+      tags: ["Matthew"],
     },
   ],
   payoutOptions: {
@@ -115,7 +114,7 @@ export const tradingConfig: TradingConfig = {
     payoutFrequency: "Bi-weekly payouts",
     avgResponseTime: "h",
     customerSupport: "24/7",
-    totalPaidOut: "$35K+"
+    totalPaidOut: "$35K+",
   },
   payoutRecords: [
     {
