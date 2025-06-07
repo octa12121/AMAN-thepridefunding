@@ -43,6 +43,18 @@ export const TestimonialCarousel = ({
     return cards;
   };
 
+  const renderTitle = (title: string) => {
+    if (title.includes("\n")) {
+      return title.split("\n").map((line, index) => (
+        <span key={index}>
+          {line}
+          {index < title.split("\n").length - 1 && <br />}
+        </span>
+      ));
+    }
+    return title;
+  };
+
   return (
     <div
       className="w-full py-12 relative overflow-hidden"
@@ -149,31 +161,33 @@ export const TestimonialCarousel = ({
                   )}
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold tracking-wide text-white">
-                      {card.title}
+                      {renderTitle(card.title)}
                     </h3>
                     <div className="text-4xl font-bold text-white">
                       {card.amount}{" "}
                       <span
                         className={cn(
                           "font-normal",
-                          card.amount === "$5125" ? "text-2xl" : "text-sm",
+                          card.amount === "$5125" ? "text-2xl" : "text-2xl",
                         )}
                         style={{ color: "rgb(24, 160, 237)" }}
                       >
-                        {card.subtitle}
+                        {card.subtitle}&nbsp;
                       </span>
                     </div>
                     {card.tags && (
                       <div className="flex gap-2 mt-4">
                         {card.tags.map((tag, tagIndex) => (
-                          <span
+                          <Badge
                             key={tagIndex}
-                            className="text-sm opacity-80 flex items-center gap-1 text-gray-300"
+                            className="text-xs font-medium border-0"
+                            style={{
+                              backgroundColor: "rgb(10, 124, 255)",
+                              color: "white",
+                            }}
                           >
-                            {(tag === "Texas" || tag === "MUMBAUI") && "🤠"}{" "}
-                            {(tag === "Texas" || tag === "MUMBAI") && "🤠"}{" "}
                             {tag}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
                     )}

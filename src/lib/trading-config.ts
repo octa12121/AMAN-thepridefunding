@@ -75,10 +75,11 @@ export const tradingConfig: TradingConfig = {
     {
       id: "3",
       type: "payout",
-      amount: "+$3,100",
-      title: "FAIR",
-      subtitle: "Before 11 PM",
-      tags: ["Matthew"],
+      amount: "$3,100",
+      title: "FAILED 9TIMES BEFORE\nMY 1ST PAYOUT",
+      subtitle: "first payout",
+      tags: ["Matthew"]
+    }
     },
   ],
   payoutOptions: {
@@ -112,9 +113,9 @@ export const tradingConfig: TradingConfig = {
   },
   stats: {
     payoutFrequency: "Bi-weekly payouts",
-    avgResponseTime: "3h",
+    avgResponseTime: "h",
     customerSupport: "24/7",
-    totalPaidOut: "$40K+",
+    totalPaidOut: "$35K+"
   },
   payoutRecords: [
     {
