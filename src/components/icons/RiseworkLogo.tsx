@@ -15,9 +15,9 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Rise logo gradient - exact colors */}
+      {/* Exact Rise logo gradient */}
       <defs>
-        <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="riseGradient" x1="20%" y1="20%" x2="80%" y2="80%">
           <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
           <stop offset="50%" style={{ stopColor: "#6366f1", stopOpacity: 1 }} />
           <stop
@@ -27,79 +27,72 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         </linearGradient>
       </defs>
 
-      {/* Perfect circle background */}
+      {/* Perfect circle */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* Rise arrow - clean stroke version matching the logo exactly */}
+      {/* Rise arrow - exact proportions from the logo */}
       <g
         stroke="white"
-        strokeWidth="6"
+        strokeWidth="5"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       >
-        {/* Main diagonal line */}
-        <line x1="30" y1="70" x2="70" y2="30" />
+        {/* Main diagonal arrow line */}
+        <path d="M30 70 L70 30" />
 
         {/* Arrow head - horizontal line */}
-        <line x1="55" y1="30" x2="70" y2="30" />
+        <path d="M57 30 L70 30" />
 
         {/* Arrow head - vertical line */}
-        <line x1="70" y1="30" x2="70" y2="45" />
+        <path d="M70 30 L70 43" />
       </g>
     </svg>
   );
 };
 
-// Alternative filled version
-export const RiseworkLogoFilled = ({
+// Backup version with different approach
+export const RiseworkLogoAlt = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("", className)}
+    <div
+      className={cn("rounded-full", className)}
+      style={{
+        width: size,
+        height: size,
+        background:
+          "linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #3b82f6 100%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
-      <defs>
-        <linearGradient
-          id="riseGradientFilled"
-          x1="0%"
-          y1="0%"
-          x2="100%"
-          y2="100%"
+      <svg
+        width={size * 0.5}
+        height={size * 0.5}
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          stroke="white"
+          strokeWidth="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
         >
-          <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
-          <stop offset="50%" style={{ stopColor: "#6366f1", stopOpacity: 1 }} />
-          <stop
-            offset="100%"
-            style={{ stopColor: "#3b82f6", stopOpacity: 1 }}
-          />
-        </linearGradient>
-      </defs>
-
-      <circle cx="50" cy="50" r="50" fill="url(#riseGradientFilled)" />
-
-      {/* Arrow as filled paths */}
-      <g fill="white">
-        {/* Diagonal arrow shaft */}
-        <path d="M27 73 L73 27 L73 33 L33 73 Z" />
-
-        {/* Arrow head horizontal */}
-        <rect x="55" y="27" width="18" height="6" />
-
-        {/* Arrow head vertical */}
-        <rect x="67" y="27" width="6" height="18" />
-      </g>
-    </svg>
+          <path d="M20 80 L80 20" />
+          <path d="M60 20 L80 20" />
+          <path d="M80 20 L80 40" />
+        </g>
+      </svg>
+    </div>
   );
 };
 
-// Simple CSS version for perfect rendering at any size
+// Simple version for small icons
 export const RiseworkLogoSimple = ({
   className,
   size = 32,
@@ -115,19 +108,17 @@ export const RiseworkLogoSimple = ({
       }}
     >
       <svg
-        width={size * 0.6}
-        height={size * 0.6}
+        width={size * 0.55}
+        height={size * 0.55}
         viewBox="0 0 24 24"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        stroke="white"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        <path
-          d="M7 17L17 7M17 7H10M17 7V14"
-          stroke="white"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path d="M7 17L17 7" />
+        <path d="M10 7h7v7" />
       </svg>
     </div>
   );
