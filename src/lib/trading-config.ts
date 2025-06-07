@@ -60,7 +60,7 @@ export const tradingConfig: TradingConfig = {
       id: "1",
       type: "testimonial",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2Fb95b103977f2407bb010a0781b2ea96c%2Fd9e042ddea364fc7a439dd216c402f3c",
+        "https://cdn.builder.io/api/v1/image/assets%2Fb95b103977f2407bb010a0781b2ea96c%2Fae544c3a04934552a9ad6bb235800a12",
       description: "Great platform for trading",
     },
     {
