@@ -15,7 +15,7 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("", className)}
     >
-      {/* Exact Rise logo gradient */}
+      {/* Rise logo gradient - exact colors */}
       <defs>
         <linearGradient id="riseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "#a855f7", stopOpacity: 1 }} />
@@ -27,26 +27,32 @@ export const RiseworkLogo = ({ className, size = 32 }: RiseworkLogoProps) => {
         </linearGradient>
       </defs>
 
-      {/* Perfect circle */}
+      {/* Perfect circle background */}
       <circle cx="50" cy="50" r="50" fill="url(#riseGradient)" />
 
-      {/* Rise arrow - exact design from the logo */}
-      <g stroke="white" fill="white">
-        {/* Main diagonal arrow shaft */}
-        <path d="M25 75 L70 30 L70 40 L35 75 Z" strokeWidth="0" />
+      {/* Rise arrow - clean stroke version matching the logo exactly */}
+      <g
+        stroke="white"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      >
+        {/* Main diagonal line */}
+        <line x1="30" y1="70" x2="70" y2="30" />
 
-        {/* Arrow head - horizontal part */}
-        <rect x="55" y="25" width="20" height="10" strokeWidth="0" />
+        {/* Arrow head - horizontal line */}
+        <line x1="55" y1="30" x2="70" y2="30" />
 
-        {/* Arrow head - vertical part */}
-        <rect x="65" y="25" width="10" height="25" strokeWidth="0" />
+        {/* Arrow head - vertical line */}
+        <line x1="70" y1="30" x2="70" y2="45" />
       </g>
     </svg>
   );
 };
 
-// Clean stroke-based version
-export const RiseworkLogoStroke = ({
+// Alternative filled version
+export const RiseworkLogoFilled = ({
   className,
   size = 32,
 }: RiseworkLogoProps) => {
@@ -61,7 +67,7 @@ export const RiseworkLogoStroke = ({
     >
       <defs>
         <linearGradient
-          id="riseGradientStroke"
+          id="riseGradientFilled"
           x1="0%"
           y1="0%"
           x2="100%"
@@ -76,25 +82,24 @@ export const RiseworkLogoStroke = ({
         </linearGradient>
       </defs>
 
-      <circle cx="50" cy="50" r="50" fill="url(#riseGradientStroke)" />
+      <circle cx="50" cy="50" r="50" fill="url(#riseGradientFilled)" />
 
-      {/* Clean arrow using strokes */}
-      <g
-        stroke="white"
-        strokeWidth="8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      >
-        <path d="M28 72 L72 28" />
-        <path d="M55 28 L72 28" />
-        <path d="M72 28 L72 45" />
+      {/* Arrow as filled paths */}
+      <g fill="white">
+        {/* Diagonal arrow shaft */}
+        <path d="M27 73 L73 27 L73 33 L33 73 Z" />
+
+        {/* Arrow head horizontal */}
+        <rect x="55" y="27" width="18" height="6" />
+
+        {/* Arrow head vertical */}
+        <rect x="67" y="27" width="6" height="18" />
       </g>
     </svg>
   );
 };
 
-// Simple version for small sizes
+// Simple CSS version for perfect rendering at any size
 export const RiseworkLogoSimple = ({
   className,
   size = 32,
@@ -110,8 +115,8 @@ export const RiseworkLogoSimple = ({
       }}
     >
       <svg
-        width={size * 0.55}
-        height={size * 0.55}
+        width={size * 0.6}
+        height={size * 0.6}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
