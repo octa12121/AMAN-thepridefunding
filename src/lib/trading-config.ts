@@ -112,7 +112,7 @@ export const tradingConfig: TradingConfig = {
   },
   stats: {
     payoutFrequency: "Bi-weekly payouts",
-    avgResponseTime: "h",
+    avgResponseTime: "4H",
     customerSupport: "24/7",
     totalPaidOut: "$35K+",
   },
