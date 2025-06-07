@@ -1,41 +1,40 @@
+import { useState } from "react";
+import { TestimonialCarousel } from "@/components/trading/TestimonialCarousel";
+import { PayoutOptions } from "@/components/trading/PayoutOptions";
+import { PayoutRecords } from "@/components/trading/PayoutRecords";
+import { ContentEditor } from "@/components/trading/ContentEditor";
+import { tradingConfig, TradingConfig } from "@/lib/trading-config";
+
 const Index = () => {
+  const [config, setConfig] = useState<TradingConfig>(tradingConfig);
+
+  const handleConfigUpdate = (newConfig: TradingConfig) => {
+    setConfig(newConfig);
+    // Here you could also save to localStorage, API, etc.
+    localStorage.setItem("tradingConfig", JSON.stringify(newConfig));
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section with Testimonials */}
+      <TestimonialCarousel
+        testimonials={config.testimonials}
+        title={config.hero.title}
+        subtitle={config.hero.subtitle}
+      />
+
+      {/* Payout Options Section */}
+      <PayoutOptions
+        title={config.payoutOptions.title}
+        options={config.payoutOptions.options}
+        stats={config.stats}
+      />
+
+      {/* Payout Records Grid */}
+      <PayoutRecords records={config.payoutRecords} />
+
+      {/* Content Editor (Floating Action Button) */}
+      <ContentEditor config={config} onUpdate={handleConfigUpdate} />
     </div>
   );
 };
