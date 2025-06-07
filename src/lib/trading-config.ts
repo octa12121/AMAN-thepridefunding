@@ -53,13 +53,14 @@ export const tradingConfig: TradingConfig = {
   hero: {
     title: "Trusted By Traders Worldwide",
     subtitle:
-      "Hear directly from traders who have profited with Xpert Funding. Real stories, real results!",
+      "Hear directly from traders who have profited with The-pridefunding.com. Real stories, real results!",
   },
   testimonials: [
     {
       id: "1",
       type: "testimonial",
-      image: "/placeholder.svg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2Fb95b103977f2407bb010a0781b2ea96c%2F93993ae92d35497aa42e3a7d950fa8e3",
       description: "Great platform for trading",
     },
     {
@@ -68,8 +69,8 @@ export const tradingConfig: TradingConfig = {
       amount: "$5125",
       title: "MY PAYOUT",
       subtitle: "first payout",
-      badge: "XPERT FUNDING TESTIMONIAL",
-      tags: ["CowboyFx", "Texas"],
+      badge: "THE-PRIDE FUNDING TESTIMONIAL",
+      tags: ["Wizense G", "MUMBAUI"],
     },
     {
       id: "3",
