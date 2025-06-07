@@ -44,19 +44,38 @@ export const TestimonialCarousel = ({
   };
 
   return (
-    <div className="w-full py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <div
+      className="w-full py-12 relative overflow-hidden"
+      style={{ backgroundColor: "rgb(8, 7, 27)" }}
+    >
+      {/* Background gradient blur effects like thepride-funding.com */}
+      <div className="absolute top-0 right-1/3 w-96 h-96 opacity-20">
+        <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-3xl" />
+      </div>
+      <div className="absolute bottom-0 left-1/3 w-80 h-80 opacity-15">
+        <div className="w-full h-full rounded-full bg-gradient-to-l from-purple-500 to-blue-600 blur-3xl" />
+      </div>
+      <div className="absolute top-1/3 right-1/4 w-64 h-64 opacity-10">
+        <div className="w-full h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 blur-2xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h2 className="text-4xl font-bold text-blue-900 mb-2">{title}</h2>
-            <p className="text-gray-600">{subtitle}</p>
+            <h2 className="text-4xl font-bold mb-2 text-white">{title}</h2>
+            <p className="text-gray-300 text-lg">{subtitle}</p>
           </div>
           <div className="flex gap-2">
             <Button
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="rounded-full border-gray-300 hover:border-blue-600"
+              className="rounded-full border-0 hover:scale-110 transition-all duration-300"
+              style={{
+                backgroundColor: "rgba(42, 43, 49, 0.41)",
+                borderColor: "rgba(132, 154, 170, 0.52)",
+                color: "rgb(10, 124, 255)",
+              }}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -64,7 +83,12 @@ export const TestimonialCarousel = ({
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="rounded-full border-gray-300 hover:border-blue-600"
+              className="rounded-full border-0 hover:scale-110 transition-all duration-300"
+              style={{
+                backgroundColor: "rgba(42, 43, 49, 0.41)",
+                borderColor: "rgba(132, 154, 170, 0.52)",
+                color: "rgb(10, 124, 255)",
+              }}
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -76,14 +100,23 @@ export const TestimonialCarousel = ({
             <Card
               key={`${card.id}-${currentIndex}`}
               className={cn(
-                "overflow-hidden transition-all duration-500 border-0 shadow-lg",
-                card.type === "payout"
-                  ? "bg-gradient-to-br from-blue-900 to-blue-800 text-white"
-                  : "bg-white",
+                "overflow-hidden transition-all duration-500 border-0 shadow-lg hover:scale-105",
+                card.type === "payout" ? "text-white" : "",
               )}
+              style={{
+                backgroundColor:
+                  card.type === "payout"
+                    ? "rgba(42, 43, 49, 0.61)"
+                    : "rgba(42, 43, 49, 0.41)",
+                borderColor: "rgba(132, 154, 170, 0.52)",
+                backdropFilter: "blur(8px)",
+              }}
             >
               {card.type === "testimonial" ? (
-                <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden relative">
+                <div
+                  className="aspect-video rounded-lg overflow-hidden relative"
+                  style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+                >
                   <img
                     src={card.image || "/placeholder.svg"}
                     alt="Testimonial"
@@ -104,21 +137,28 @@ export const TestimonialCarousel = ({
               ) : (
                 <div className="p-6">
                   {card.badge && (
-                    <Badge className="mb-4 bg-blue-600 hover:bg-blue-700 text-xs font-medium">
+                    <Badge
+                      className="mb-4 text-xs font-medium border-0"
+                      style={{
+                        backgroundColor: "rgb(10, 124, 255)",
+                        color: "white",
+                      }}
+                    >
                       {card.badge}
                     </Badge>
                   )}
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-bold tracking-wide">
+                    <h3 className="text-2xl font-bold tracking-wide text-white">
                       {card.title}
                     </h3>
-                    <div className="text-4xl font-bold">
+                    <div className="text-4xl font-bold text-white">
                       {card.amount}{" "}
                       <span
                         className={cn(
                           "font-normal",
                           card.amount === "$5125" ? "text-2xl" : "text-sm",
                         )}
+                        style={{ color: "rgb(24, 160, 237)" }}
                       >
                         {card.subtitle}
                       </span>
@@ -128,7 +168,7 @@ export const TestimonialCarousel = ({
                         {card.tags.map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
-                            className="text-sm opacity-80 flex items-center gap-1"
+                            className="text-sm opacity-80 flex items-center gap-1 text-gray-300"
                           >
                             {(tag === "Texas" || tag === "MUMBAUI") && "🤠"}{" "}
                             {tag}
