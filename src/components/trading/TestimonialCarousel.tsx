@@ -45,10 +45,16 @@ export const TestimonialCarousel = ({
 
   const renderTitle = (title: string) => {
     if (title.includes("\n")) {
-      return title.split("\n").map((line, index) => (
-        <span key={index}>
+      const lines = title.split("\n");
+      return lines.map((line, index) => (
+        <span
+          key={index}
+          style={{
+            fontSize: index === 1 ? "20px" : undefined,
+          }}
+        >
           {line}
-          {index < title.split("\n").length - 1 && <br />}
+          {index < lines.length - 1 && <br />}
         </span>
       ));
     }
