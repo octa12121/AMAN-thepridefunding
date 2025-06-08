@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { PayoutRecord } from "@/lib/trading-config";
+import { useCounter } from "@/hooks/use-counter";
 import { cn } from "@/lib/utils";
 
 interface PayoutRecordsProps {
@@ -11,6 +12,15 @@ interface PayoutRecordsProps {
 
 export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
   const [showAll, setShowAll] = useState(false);
+
+  // Animated counters like aurapips.com
+  const tradersCounter = useCounter({ end: 1240, duration: 2500, suffix: "+" });
+  const rewardedCounter = useCounter({ end: 890, duration: 2800, suffix: "+" });
+  const processedCounter = useCounter({
+    end: 2156,
+    duration: 3000,
+    suffix: "+",
+  });
 
   // Duplicate records for seamless infinite scroll
   const duplicatedRecords = [...records, ...records, ...records];
@@ -43,18 +53,33 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
           </p>
         </div>
 
-        {/* Stats Grid */}
+        {/* Animated Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">1,240+</div>
+            <div
+              ref={tradersCounter.ref}
+              className="text-4xl font-bold text-white mb-2 transition-all duration-300 hover:scale-110"
+            >
+              {tradersCounter.value}
+            </div>
             <div className="text-gray-400">Pride Funding Traders</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">890+</div>
+            <div
+              ref={rewardedCounter.ref}
+              className="text-4xl font-bold text-white mb-2 transition-all duration-300 hover:scale-110"
+            >
+              {rewardedCounter.value}
+            </div>
             <div className="text-gray-400">Rewarded Traders</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-white mb-2">2,156+</div>
+            <div
+              ref={processedCounter.ref}
+              className="text-4xl font-bold text-white mb-2 transition-all duration-300 hover:scale-110"
+            >
+              {processedCounter.value}
+            </div>
             <div className="text-gray-400">Processed Rewards</div>
           </div>
         </div>
