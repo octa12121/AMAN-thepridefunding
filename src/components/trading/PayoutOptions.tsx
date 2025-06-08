@@ -27,6 +27,23 @@ const iconMap = {
   crypto: Bitcoin,
 };
 
+const renderDescription = (description: string) => {
+  if (description.includes("\n")) {
+    return description.split("\n").map((line, index) => (
+      <span key={index}>
+        {index > 0 && (
+          <>
+            <br />
+            &nbsp;
+          </>
+        )}
+        {line}
+      </span>
+    ));
+  }
+  return description;
+};
+
 export const PayoutOptions = ({
   title,
   options,
@@ -83,7 +100,7 @@ export const PayoutOptions = ({
                       {option.title}
                     </h3>
                     <p className="text-gray-300 mb-4 leading-relaxed text-lg">
-                      {option.description}
+                      {renderDescription(option.description)}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {option.features.map((feature, index) => (

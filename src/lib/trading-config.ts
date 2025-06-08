@@ -99,9 +99,10 @@ export const tradingConfig: TradingConfig = {
       {
         id: "crypto",
         title: "Payout with crypto",
-        description:
-          "Get your trading profits your way - we support both Bitcoin and major stablecoins for universal accessibility.",
+        description: "Get your trading profits your way -\n we support both Bitcoin and major stablecoins for universal accessibility.",
         icon: "crypto",
+        features: ["Bitcoin support", "Major stablecoins", "Universal accessibility"]
+      }
         features: [
           "Bitcoin support",
           "Major stablecoins",
