@@ -9,6 +9,7 @@ import {
   DollarSign,
 } from "lucide-react";
 import { RiseworkLogo } from "@/components/icons/RiseworkLogo";
+import { useCounter } from "@/hooks/use-counter";
 import { PayoutOption } from "@/lib/trading-config";
 
 interface PayoutOptionsProps {
@@ -49,6 +50,19 @@ export const PayoutOptions = ({
   options,
   stats,
 }: PayoutOptionsProps) => {
+  // Animated counters for numerical stats
+  const responseTimeCounter = useCounter({
+    end: 4,
+    duration: 2000,
+    suffix: "H",
+  });
+  const totalPaidCounter = useCounter({
+    end: 35,
+    duration: 2500,
+    prefix: "$",
+    suffix: "K+",
+  });
+
   return (
     <div
       className="w-full py-16 relative overflow-hidden"
@@ -183,7 +197,7 @@ export const PayoutOptions = ({
           })}
         </div>
 
-        {/* Stats section */}
+        {/* Stats section with animated counters */}
         <Card
           className="border-0 backdrop-blur-sm p-8"
           style={{
@@ -207,8 +221,11 @@ export const PayoutOptions = ({
                 className="h-12 w-12 mx-auto mb-3"
                 style={{ color: "rgb(24, 160, 237)" }}
               />
-              <div className="text-2xl font-bold text-white mb-1">
-                {stats.avgResponseTime}
+              <div
+                ref={responseTimeCounter.ref}
+                className="text-2xl font-bold text-white mb-1 transition-all duration-300"
+              >
+                {responseTimeCounter.value}
               </div>
               <div className="text-gray-400 text-sm">Average Response Time</div>
             </div>
@@ -227,8 +244,11 @@ export const PayoutOptions = ({
                 className="h-12 w-12 mx-auto mb-3"
                 style={{ color: "rgb(24, 160, 237)" }}
               />
-              <div className="text-2xl font-bold text-white mb-1">
-                {stats.totalPaidOut}
+              <div
+                ref={totalPaidCounter.ref}
+                className="text-2xl font-bold text-white mb-1 transition-all duration-300"
+              >
+                {totalPaidCounter.value}
               </div>
               <div className="text-gray-400 text-sm">Total Paid Out</div>
             </div>
