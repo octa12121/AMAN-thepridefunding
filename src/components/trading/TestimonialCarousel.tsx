@@ -43,14 +43,14 @@ export const TestimonialCarousel = ({
     return cards;
   };
 
-  const renderTitle = (title: string) => {
+  const renderTitle = (title: string, cardId: string) => {
     if (title.includes("\n")) {
       const lines = title.split("\n");
       return lines.map((line, index) => (
         <span
           key={index}
           style={{
-            fontSize: index === 1 ? "20px" : undefined,
+            fontSize: "20px",
           }}
         >
           {line}
@@ -58,7 +58,11 @@ export const TestimonialCarousel = ({
         </span>
       ));
     }
-    return title;
+    return (
+      <span style={{ fontSize: cardId === "2" ? "20px" : "24px" }}>
+        {title}
+      </span>
+    );
   };
 
   return (
@@ -166,17 +170,24 @@ export const TestimonialCarousel = ({
                     </Badge>
                   )}
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-bold tracking-wide text-white">
-                      {renderTitle(card.title)}
+                    <h3
+                      className="font-bold tracking-wide text-white"
+                      style={{
+                        fontSize: card.id === "2" ? "20px" : "24px",
+                        lineHeight: "32px",
+                      }}
+                    >
+                      {renderTitle(card.title, card.id)}
                     </h3>
                     <div className="text-4xl font-bold text-white">
-                      {card.amount}{" "}
+                      <span style={{ fontSize: "20px" }}>{card.amount}</span>
                       <span
-                        className={cn(
-                          "font-normal",
-                          card.amount === "$5125" ? "text-2xl" : "text-2xl",
-                        )}
-                        style={{ color: "rgb(24, 160, 237)" }}
+                        className="font-normal"
+                        style={{
+                          color: "rgb(24, 160, 237)",
+                          fontSize: "20px",
+                          lineHeight: "32px",
+                        }}
                       >
                         {card.subtitle}&nbsp;
                       </span>
