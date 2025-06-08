@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PayoutRecord } from "@/lib/trading-config";
 import { cn } from "@/lib/utils";
 
@@ -11,33 +10,10 @@ interface PayoutRecordsProps {
 }
 
 export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [showAll, setShowAll] = useState(false);
-  const cardsPerView = 4; // Number of cards to show at once
-  const maxIndex = Math.max(0, records.length - cardsPerView);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  };
-
-  // Auto-slide functionality
-  useEffect(() => {
-    if (!showAll) {
-      const interval = setInterval(nextSlide, 3000);
-      return () => clearInterval(interval);
-    }
-  }, [showAll, maxIndex]);
-
-  const getVisibleRecords = () => {
-    if (showAll) {
-      return records;
-    }
-    return records.slice(currentIndex, currentIndex + cardsPerView);
-  };
+  // Duplicate records for seamless infinite scroll
+  const duplicatedRecords = [...records, ...records, ...records];
 
   return (
     <div
@@ -56,70 +32,178 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* Slider Header */}
-        {!showAll && (
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">
-                Recent Payouts
-              </h2>
-              <p className="text-gray-400">
-                Live payout updates from our traders
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={prevSlide}
-                className="rounded-full border-0 hover:scale-110 transition-all duration-300"
-                style={{
-                  backgroundColor: "rgba(42, 43, 49, 0.41)",
-                  borderColor: "rgba(132, 154, 170, 0.52)",
-                  color: "rgb(10, 124, 255)",
-                }}
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={nextSlide}
-                className="rounded-full border-0 hover:scale-110 transition-all duration-300"
-                style={{
-                  backgroundColor: "rgba(42, 43, 49, 0.41)",
-                  borderColor: "rgba(132, 154, 170, 0.52)",
-                  color: "rgb(10, 124, 255)",
-                }}
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        )}
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Rewarding Our Best Traders
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            On average our full-time traders have a monthly reward rate of 8.1%.
+            You receive up to 90% of those rewards.
+          </p>
+        </div>
 
-        {/* Slider Container */}
-        <div className="relative overflow-hidden">
-          <div
-            className={cn(
-              "transition-transform duration-500 ease-in-out",
-              showAll
-                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-                : "flex gap-4",
-            )}
-            style={{
-              transform: showAll
-                ? "none"
-                : `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
-            }}
-          >
-            {(showAll ? records : getVisibleRecords()).map((record, index) => (
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-white mb-2">1,240+</div>
+            <div className="text-gray-400">Pride Funding Traders</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-white mb-2">890+</div>
+            <div className="text-gray-400">Rewarded Traders</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-white mb-2">2,156+</div>
+            <div className="text-gray-400">Processed Rewards</div>
+          </div>
+        </div>
+
+        {/* Continuous Scroll Slider */}
+        {!showAll ? (
+          <div className="relative">
+            {/* Top Row - Left to Right */}
+            <div className="mb-6 overflow-hidden">
+              <div
+                className="flex gap-4 animate-scroll-left"
+                style={{
+                  width: "calc(300px * 48)", // Width for seamless scroll
+                  animation: "scrollLeft 60s linear infinite",
+                }}
+              >
+                {duplicatedRecords.map((record, index) => (
+                  <Card
+                    key={`top-${record.id}-${index}`}
+                    className="border-0 backdrop-blur-sm p-4 hover:scale-105 transition-all duration-300 group flex-shrink-0 w-72"
+                    style={{
+                      backgroundColor: "rgba(42, 43, 49, 0.41)",
+                      borderColor: "rgba(132, 154, 170, 0.52)",
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <Avatar
+                        className="h-10 w-10 border-2"
+                        style={{ borderColor: "rgb(10, 124, 255)" }}
+                      >
+                        <AvatarImage src={record.avatar} />
+                        <AvatarFallback
+                          className="text-white text-sm"
+                          style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                        >
+                          {record.trader
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-2xl font-bold text-green-400 mb-1">
+                          {record.amount}
+                        </div>
+                        <div className="text-sm text-gray-300 truncate">
+                          {record.trader}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg">{record.flag}</span>
+                        <span className="text-xs text-gray-400">
+                          {record.country}
+                        </span>
+                      </div>
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Row - Right to Left */}
+            <div className="overflow-hidden">
+              <div
+                className="flex gap-4 animate-scroll-right"
+                style={{
+                  width: "calc(300px * 48)", // Width for seamless scroll
+                  animation: "scrollRight 60s linear infinite",
+                }}
+              >
+                {duplicatedRecords
+                  .slice()
+                  .reverse()
+                  .map((record, index) => (
+                    <Card
+                      key={`bottom-${record.id}-${index}`}
+                      className="border-0 backdrop-blur-sm p-4 hover:scale-105 transition-all duration-300 group flex-shrink-0 w-72"
+                      style={{
+                        backgroundColor: "rgba(42, 43, 49, 0.41)",
+                        borderColor: "rgba(132, 154, 170, 0.52)",
+                      }}
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <Avatar
+                          className="h-10 w-10 border-2"
+                          style={{ borderColor: "rgb(10, 124, 255)" }}
+                        >
+                          <AvatarImage src={record.avatar} />
+                          <AvatarFallback
+                            className="text-white text-sm"
+                            style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                          >
+                            {record.trader
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-2xl font-bold text-green-400 mb-1">
+                            {record.amount}
+                          </div>
+                          <div className="text-sm text-gray-300 truncate">
+                            {record.trader}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg">{record.flag}</span>
+                          <span className="text-xs text-gray-400">
+                            {record.country}
+                          </span>
+                        </div>
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                      </div>
+                    </Card>
+                  ))}
+              </div>
+            </div>
+
+            {/* Gradient Overlays for smooth edges */}
+            <div
+              className="absolute left-0 top-0 bottom-0 w-20 pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(to right, rgb(8, 7, 27), transparent)",
+              }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 w-20 pointer-events-none z-10"
+              style={{
+                background:
+                  "linear-gradient(to left, rgb(8, 7, 27), transparent)",
+              }}
+            />
+          </div>
+        ) : (
+          /* Static Grid View */
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {records.map((record, index) => (
               <Card
                 key={record.id}
                 className={cn(
-                  "border-0 backdrop-blur-sm p-4 hover:scale-105 transition-all duration-300 group flex-shrink-0",
+                  "border-0 backdrop-blur-sm p-4 hover:scale-105 transition-all duration-300 group",
                   "animate-in fade-in slide-in-from-bottom-4",
-                  !showAll && "w-1/4",
                 )}
                 style={{
                   backgroundColor: "rgba(42, 43, 49, 0.41)",
@@ -164,28 +248,10 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
               </Card>
             ))}
           </div>
-        </div>
-
-        {/* Pagination Dots */}
-        {!showAll && records.length > cardsPerView && (
-          <div className="flex justify-center gap-2 mt-6">
-            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={cn(
-                  "w-2 h-2 rounded-full transition-all duration-300",
-                  currentIndex === index
-                    ? "bg-blue-500 w-6"
-                    : "bg-gray-600 hover:bg-gray-500",
-                )}
-              />
-            ))}
-          </div>
         )}
 
         {/* Toggle Button */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-12">
           <Button
             onClick={() => setShowAll(!showAll)}
             variant="outline"
@@ -198,10 +264,45 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
               color: "white",
             }}
           >
-            {showAll ? "Show Slider" : "View All Payouts"}
+            {showAll ? "View Scroll Animation" : "View All Payouts"}
           </Button>
         </div>
       </div>
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes scrollLeft {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-33.333%);
+          }
+        }
+
+        @keyframes scrollRight {
+          0% {
+            transform: translateX(-33.333%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        .animate-scroll-left {
+          animation: scrollLeft 60s linear infinite;
+        }
+
+        .animate-scroll-right {
+          animation: scrollRight 60s linear infinite;
+        }
+
+        /* Pause animation on hover */
+        .animate-scroll-left:hover,
+        .animate-scroll-right:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 };
