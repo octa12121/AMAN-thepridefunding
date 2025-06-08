@@ -50,15 +50,15 @@ export const PayoutOptions = ({
   options,
   stats,
 }: PayoutOptionsProps) => {
-  // Animated counters for numerical stats
+  // Animated counters for numerical stats - slower speeds
   const responseTimeCounter = useCounter({
     end: 4,
-    duration: 2000,
+    duration: 3500,
     suffix: "H",
   });
   const totalPaidCounter = useCounter({
     end: 35,
-    duration: 2500,
+    duration: 4000,
     prefix: "$",
     suffix: "K+",
   });
