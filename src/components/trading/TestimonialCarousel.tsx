@@ -20,13 +20,13 @@ export const TestimonialCarousel = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
     setCurrentIndex(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length,
     );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const TestimonialCarousel = ({
       const index = (currentIndex + i) % testimonials.length;
       cards.push(testimonials[index]);
     }
-    return cards;
+    return cards.reverse(); // Reverse order to show from right to left
   };
 
   const renderTitle = (title: string, cardId: string) => {
