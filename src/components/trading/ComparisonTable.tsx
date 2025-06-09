@@ -202,34 +202,39 @@ export const ComparisonTable = () => {
           }}
         >
           {/* Table Header */}
-          <div className="grid grid-cols-5 gap-4 p-6 border-b border-gray-600/30">
-            <div className="text-gray-400 font-semibold text-sm uppercase tracking-wide">
+          <div className="grid grid-cols-5 gap-3 p-4 border-b border-gray-600/30">
+            <div className="text-gray-400 font-semibold text-xs uppercase tracking-wide">
               Features
             </div>
             <div className="text-center">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg mb-2 relative">
-                <div className="absolute -top-2 -right-2">
-                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+              <div className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white px-3 py-2 rounded-lg mb-1 relative shadow-2xl shadow-blue-500/30 border border-blue-400/30">
+                <div className="absolute -top-1 -right-1 animate-pulse">
+                  <Star className="h-4 w-4 text-yellow-400 fill-yellow-400 drop-shadow-lg" />
                 </div>
-                <div className="font-bold text-lg">The Pride Funding</div>
-                <div className="text-xs opacity-90">Best Choice</div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-lg blur-sm"></div>
+                <div className="relative">
+                  <div className="font-bold text-sm">The Pride Funding</div>
+                  <div className="text-xs opacity-90 text-blue-100">
+                    Best Choice
+                  </div>
+                </div>
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-gray-700 text-gray-300 px-4 py-2 rounded-lg">
-                <div className="font-semibold">FTMO</div>
+              <div className="bg-gray-700/80 text-gray-300 px-3 py-2 rounded-lg">
+                <div className="font-semibold text-sm">FTMO</div>
                 <div className="text-xs opacity-70">Traditional</div>
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-gray-700 text-gray-300 px-4 py-2 rounded-lg">
-                <div className="font-semibold">FundedNext</div>
+              <div className="bg-gray-700/80 text-gray-300 px-3 py-2 rounded-lg">
+                <div className="font-semibold text-sm">FundedNext</div>
                 <div className="text-xs opacity-70">Popular</div>
               </div>
             </div>
             <div className="text-center">
-              <div className="bg-gray-700 text-gray-300 px-4 py-2 rounded-lg">
-                <div className="font-semibold">FundingPips</div>
+              <div className="bg-gray-700/80 text-gray-300 px-3 py-2 rounded-lg">
+                <div className="font-semibold text-sm">FundingPips</div>
                 <div className="text-xs opacity-70">Alternative</div>
               </div>
             </div>
