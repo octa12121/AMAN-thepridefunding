@@ -7,6 +7,7 @@ import {
   Clock,
   Users,
   DollarSign,
+  CheckCircle,
 } from "lucide-react";
 import { RiseworkLogo } from "@/components/icons/RiseworkLogo";
 import { useCounter } from "@/hooks/use-counter";
@@ -134,64 +135,139 @@ export const PayoutOptions = ({
                   </div>
                 </div>
 
-                {/* Mock interface preview */}
-                <div
-                  className="mt-6 rounded-lg p-4 border backdrop-blur-sm"
-                  style={{
-                    backgroundColor: "rgba(0, 0, 0, 0.3)",
-                    borderColor: "rgba(132, 154, 170, 0.3)",
-                  }}
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-6 h-6 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: "rgb(10, 124, 255)" }}
-                      >
-                        {option.id === "rise" ? (
+                {/* Compact Transaction Screenshot */}
+                {option.id === "rise" ? (
+                  <div
+                    className="mt-6 rounded-lg border backdrop-blur-sm overflow-hidden"
+                    style={{
+                      backgroundColor: "rgba(0, 0, 0, 0.3)",
+                      borderColor: "rgba(132, 154, 170, 0.3)",
+                    }}
+                  >
+                    {/* Transaction Header */}
+                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 border-b border-blue-500/30">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
                           <RiseworkLogo
-                            className="h-3 w-3 text-white"
-                            size={12}
+                            className="h-5 w-5 text-white"
+                            size={20}
                           />
-                        ) : (
-                          <Icon className="h-3 w-3 text-white" />
-                        )}
+                          <span className="text-white font-semibold text-sm">
+                            Rise Transfer
+                          </span>
+                        </div>
+                        <CheckCircle className="h-4 w-4 text-green-400" />
                       </div>
-                      <span className="text-sm text-gray-300">
-                        {option.id === "rise"
-                          ? "Risework Transfer"
-                          : "Crypto Wallet"}
+                    </div>
+
+                    {/* Transaction Details */}
+                    <div className="p-4 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-400 text-sm">
+                          Transaction ID
+                        </span>
+                        <span className="text-white text-sm font-mono">
+                          #RSE789456
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-400 text-sm">Amount</span>
+                        <span className="text-green-400 text-lg font-bold">
+                          $2,847.50
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-400 text-sm">Recipient</span>
+                        <span className="text-white text-sm">
+                          John Trader ****2847
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-400 text-sm">Date</span>
+                        <span className="text-white text-sm">
+                          Dec 15, 2024 14:32
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-400 text-sm">Status</span>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <span className="text-green-400 text-sm font-medium">
+                            Completed
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Processing Time */}
+                      <div className="mt-4 pt-3 border-t border-gray-600/30">
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4 text-blue-400" />
+                          <span className="text-blue-400 text-xs">
+                            Processed in 2.3 seconds
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 px-4 py-2 border-t border-green-600/20">
+                      <div className="flex items-center gap-2 justify-center">
+                        <CheckCircle className="h-3 w-3 text-green-400" />
+                        <span className="text-green-400 text-xs font-medium">
+                          Verified & Secure Transfer
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* Original Mock interface preview for crypto */
+                  <div
+                    className="mt-6 rounded-lg p-4 border backdrop-blur-sm"
+                    style={{
+                      backgroundColor: "rgba(0, 0, 0, 0.3)",
+                      borderColor: "rgba(132, 154, 170, 0.3)",
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div
+                          className="w-6 h-6 rounded-full flex items-center justify-center"
+                          style={{ backgroundColor: "rgb(10, 124, 255)" }}
+                        >
+                          <Icon className="h-3 w-3 text-white" />
+                        </div>
+                        <span className="text-sm text-gray-300">
+                          Crypto Wallet
+                        </span>
+                      </div>
+                      <span className="text-xs text-green-400 bg-green-400/20 px-2 py-1 rounded">
+                        Transfer confirmed
                       </span>
                     </div>
-                    <span className="text-xs text-green-400 bg-green-400/20 px-2 py-1 rounded">
-                      {option.id === "rise"
-                        ? "Payout completed"
-                        : "Transfer confirmed"}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <div className="text-sm text-gray-400">
-                        {option.id === "rise"
-                          ? "Total Amount"
-                          : "Crypto Amount"}
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <div className="text-sm text-gray-400">
+                          Crypto Amount
+                        </div>
+                        <div className="text-xl font-bold text-white">
+                          ₿1,092
+                        </div>
                       </div>
-                      <div className="text-xl font-bold text-white">
-                        {option.id === "rise" ? "$1,325" : "₿1,092"}
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm text-gray-400">
-                        {option.id === "rise"
-                          ? "Transfer ID"
-                          : "Transaction Hash"}
-                      </div>
-                      <div className="text-xs text-gray-300 font-mono">
-                        {option.id === "rise" ? "TXN789456" : "0x7a9b...c4e1"}
+                      <div className="text-right">
+                        <div className="text-sm text-gray-400">
+                          Transaction Hash
+                        </div>
+                        <div className="text-xs text-gray-300 font-mono">
+                          0x7a9b...c4e1
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                )}
               </Card>
             );
           })}
