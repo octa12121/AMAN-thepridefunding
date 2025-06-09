@@ -3,15 +3,18 @@ import { Badge } from "@/components/ui/badge";
 import {
   Banknote,
   Bitcoin,
-  Shield,
-  Clock,
-  Users,
-  DollarSign,
   CheckCircle,
   Copy,
   ExternalLink,
 } from "lucide-react";
 import { RiseworkLogo } from "@/components/icons/RiseworkLogo";
+import {
+  AnimatedShieldIcon,
+  AnimatedClockIcon,
+  AnimatedUsersIcon,
+  AnimatedDollarIcon,
+  AnimatedIconStyles,
+} from "@/components/icons/Animated3DIcons";
 import { useCounter } from "@/hooks/use-counter";
 import { PayoutOption } from "@/lib/trading-config";
 
@@ -71,6 +74,9 @@ export const PayoutOptions = ({
       className="w-full py-16 relative overflow-hidden"
       style={{ backgroundColor: "rgb(8, 7, 27)" }}
     >
+      {/* Include animated icon styles */}
+      <AnimatedIconStyles />
+
       {/* Background gradient blur effects like thepride-funding.com */}
       <div className="absolute top-0 left-1/4 w-96 h-96 opacity-20">
         <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-3xl" />
@@ -216,7 +222,7 @@ export const PayoutOptions = ({
                         {/* Processing Time */}
                         <div className="pt-3 border-t border-gray-600/30">
                           <div className="flex items-center gap-2">
-                            <Clock className="h-4 w-4 text-blue-400" />
+                            <AnimatedClockIcon size={16} />
                             <span className="text-blue-400 text-xs">
                               Processed in 2.3 seconds
                             </span>
@@ -342,7 +348,7 @@ export const PayoutOptions = ({
           })}
         </div>
 
-        {/* Stats section with animated counters */}
+        {/* Stats section with 3D animated icons */}
         <Card
           className="border-0 backdrop-blur-sm p-8"
           style={{
@@ -352,20 +358,18 @@ export const PayoutOptions = ({
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group hover:scale-105 transition-transform duration-300">
-              <Shield
-                className="h-12 w-12 mx-auto mb-3"
-                style={{ color: "rgb(24, 160, 237)" }}
-              />
+              <div className="mx-auto mb-3">
+                <AnimatedShieldIcon size={48} />
+              </div>
               <div className="text-2xl font-bold text-white mb-1">
                 {stats.payoutFrequency}
               </div>
               <div className="text-gray-400 text-sm">Payout Schedule</div>
             </div>
             <div className="text-center group hover:scale-105 transition-transform duration-300">
-              <Clock
-                className="h-12 w-12 mx-auto mb-3"
-                style={{ color: "rgb(24, 160, 237)" }}
-              />
+              <div className="mx-auto mb-3">
+                <AnimatedClockIcon size={48} />
+              </div>
               <div
                 ref={responseTimeCounter.ref}
                 className="text-2xl font-bold text-white mb-1 transition-all duration-300"
@@ -375,20 +379,18 @@ export const PayoutOptions = ({
               <div className="text-gray-400 text-sm">Average Response Time</div>
             </div>
             <div className="text-center group hover:scale-105 transition-transform duration-300">
-              <Users
-                className="h-12 w-12 mx-auto mb-3"
-                style={{ color: "rgb(24, 160, 237)" }}
-              />
+              <div className="mx-auto mb-3">
+                <AnimatedUsersIcon size={48} />
+              </div>
               <div className="text-2xl font-bold text-white mb-1">
                 {stats.customerSupport}
               </div>
               <div className="text-gray-400 text-sm">Customer Support</div>
             </div>
             <div className="text-center group hover:scale-105 transition-transform duration-300">
-              <DollarSign
-                className="h-12 w-12 mx-auto mb-3"
-                style={{ color: "rgb(24, 160, 237)" }}
-              />
+              <div className="mx-auto mb-3">
+                <AnimatedDollarIcon size={48} />
+              </div>
               <div
                 ref={totalPaidCounter.ref}
                 className="text-2xl font-bold text-white mb-1 transition-all duration-300"
