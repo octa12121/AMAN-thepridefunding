@@ -284,21 +284,23 @@ export const ComparisonTable = () => {
           </div>
 
           {/* Table Footer */}
-          <div className="bg-gradient-to-r from-blue-900/20 to-blue-800/20 p-6 border-t border-blue-600/30">
-            <div className="grid grid-cols-5 gap-4 items-center">
-              <div className="text-gray-400 font-semibold">Overall Rating</div>
+          <div className="bg-gradient-to-r from-blue-900/20 to-blue-800/20 p-4 border-t border-blue-600/30">
+            <div className="grid grid-cols-5 gap-3 items-center">
+              <div className="text-gray-400 font-semibold text-sm">
+                Overall Rating
+              </div>
 
               <div className="text-center">
                 <div className="flex justify-center mb-2">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star
                       key={star}
-                      className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                      className="h-4 w-4 text-yellow-400 fill-yellow-400"
                     />
                   ))}
                 </div>
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
-                  <Target className="h-4 w-4 mr-2" />
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full text-xs py-2 shadow-lg shadow-blue-500/20">
+                  <Target className="h-3.5 w-3.5 mr-1" />
                   Get Funded
                 </Button>
               </div>
@@ -308,12 +310,12 @@ export const ComparisonTable = () => {
                   {[1, 2, 3, 4].map((star) => (
                     <Star
                       key={star}
-                      className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                      className="h-4 w-4 text-yellow-400 fill-yellow-400"
                     />
                   ))}
-                  <Star className="h-5 w-5 text-gray-400" />
+                  <Star className="h-4 w-4 text-gray-400" />
                 </div>
-                <div className="text-gray-400 text-sm">4.0/5</div>
+                <div className="text-gray-400 text-xs">4.0/5</div>
               </div>
 
               <div className="text-center">
@@ -321,14 +323,14 @@ export const ComparisonTable = () => {
                   {[1, 2, 3].map((star) => (
                     <Star
                       key={star}
-                      className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                      className="h-4 w-4 text-yellow-400 fill-yellow-400"
                     />
                   ))}
                   {[4, 5].map((star) => (
-                    <Star key={star} className="h-5 w-5 text-gray-400" />
+                    <Star key={star} className="h-4 w-4 text-gray-400" />
                   ))}
                 </div>
-                <div className="text-gray-400 text-sm">3.5/5</div>
+                <div className="text-gray-400 text-xs">3.5/5</div>
               </div>
 
               <div className="text-center">
@@ -336,37 +338,37 @@ export const ComparisonTable = () => {
                   {[1, 2, 3].map((star) => (
                     <Star
                       key={star}
-                      className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                      className="h-4 w-4 text-yellow-400 fill-yellow-400"
                     />
                   ))}
                   {[4, 5].map((star) => (
-                    <Star key={star} className="h-5 w-5 text-gray-400" />
+                    <Star key={star} className="h-4 w-4 text-gray-400" />
                   ))}
                 </div>
-                <div className="text-gray-400 text-sm">3.0/5</div>
+                <div className="text-gray-400 text-xs">3.0/5</div>
               </div>
             </div>
           </div>
         </Card>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/30 rounded-2xl p-8 border border-blue-600/30">
-            <h3 className="text-2xl font-bold text-white mb-4">
+        <div className="text-center mt-8">
+          <div className="bg-gradient-to-r from-blue-900/30 to-blue-800/30 rounded-xl p-6 border border-blue-600/30">
+            <h3 className="text-xl font-bold text-white mb-3">
               Ready to Experience the Difference?
             </h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-gray-300 mb-4 max-w-xl mx-auto text-sm">
               Join thousands of successful traders who chose The-Pride Funding
               for faster payouts, better conditions, and superior support.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3">
-                <DollarSign className="h-5 w-5 mr-2" />
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 text-sm">
+                <DollarSign className="h-4 w-4 mr-2" />
                 Start Challenge
               </Button>
               <Button
                 variant="outline"
-                className="border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-3"
+                className="border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-2.5 text-sm"
               >
                 Learn More
               </Button>
