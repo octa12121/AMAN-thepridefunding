@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TestimonialCarousel } from "@/components/trading/TestimonialCarousel";
 import { PayoutOptions } from "@/components/trading/PayoutOptions";
 import { PayoutRecords } from "@/components/trading/PayoutRecords";
-import { ContentEditor } from "@/components/trading/ContentEditor";
+import { ComparisonTable } from "@/components/trading/ComparisonTable";
 import { tradingConfig, TradingConfig } from "@/lib/trading-config";
 
 const Index = () => {
@@ -33,8 +33,8 @@ const Index = () => {
       {/* Payout Records Grid */}
       <PayoutRecords records={config.payoutRecords} />
 
-      {/* Content Editor (Floating Action Button) */}
-      <ContentEditor config={config} onUpdate={handleConfigUpdate} />
+      {/* Comparison Table Section */}
+      <ComparisonTable />
     </div>
   );
 };
