@@ -124,7 +124,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Gabriel Hayes",
       country: "USA",
       flag: "🇺🇸",
-      avatar: "/placeholder.svg",
+      bitmoji: "👨🏻‍💼",
     },
     {
       id: "2",
@@ -132,6 +132,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Marko",
       country: "Belgium",
       flag: "🇧🇪",
+      bitmoji: "👨🏼‍💻",
     },
     {
       id: "3",
@@ -139,6 +140,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Theo Laurent",
       country: "France",
       flag: "🇫🇷",
+      bitmoji: "👨🏻‍🎨",
     },
     {
       id: "4",
@@ -146,6 +148,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Aryan Smith",
       country: "USA",
       flag: "🇺🇸",
+      bitmoji: "👨🏽‍🔬",
     },
     {
       id: "5",
@@ -153,6 +156,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Javier Martín",
       country: "Spain",
       flag: "🇪🇸",
+      bitmoji: "👨🏻‍🏫",
     },
     {
       id: "6",
@@ -160,6 +164,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Marko",
       country: "Belgium",
       flag: "🇧🇪",
+      bitmoji: "👨🏼‍💻",
     },
     {
       id: "7",
@@ -167,6 +172,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Diego Ramirez",
       country: "Spain",
       flag: "🇪🇸",
+      bitmoji: "👨🏽‍⚕️",
     },
     {
       id: "8",
@@ -174,6 +180,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Ardan Syah",
       country: "Albania",
       flag: "🇦🇱",
+      bitmoji: "👨🏻‍💼",
     },
     {
       id: "9",
@@ -181,6 +188,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Diego",
       country: "India",
       flag: "🇮🇳",
+      bitmoji: "👨🏽‍🔧",
     },
     {
       id: "10",
@@ -188,6 +196,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Marko",
       country: "Belgium",
       flag: "🇧🇪",
+      bitmoji: "👨🏼‍💻",
     },
     {
       id: "11",
@@ -195,6 +204,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Luka",
       country: "Belgium",
       flag: "🇧🇪",
+      bitmoji: "👨🏼‍🎓",
     },
     {
       id: "12",
@@ -202,6 +212,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Javier Martín",
       country: "India",
       flag: "🇮🇳",
+      bitmoji: "👨🏻‍🏫",
     },
     {
       id: "13",
@@ -209,6 +220,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Diego",
       country: "USA",
       flag: "🇺🇸",
+      bitmoji: "👨🏽‍🔧",
     },
     {
       id: "14",
@@ -216,6 +228,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Elena",
       country: "Russia",
       flag: "🇷🇺",
+      bitmoji: "👩🏻‍💻",
     },
     {
       id: "15",
@@ -223,6 +236,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Marcus",
       country: "Germany",
       flag: "🇩🇪",
+      bitmoji: "👨🏼‍💼",
     },
     {
       id: "16",
@@ -230,6 +244,7 @@ export const tradingConfig: TradingConfig = {
       trader: "Sophie",
       country: "Canada",
       flag: "🇨🇦",
+      bitmoji: "👩🏻‍🎨",
     },
   ],
 };
