@@ -246,32 +246,37 @@ export const ComparisonTable = () => {
               <div
                 key={index}
                 className={cn(
-                  "grid grid-cols-5 gap-4 p-4 hover:bg-blue-900/10 transition-colors duration-200",
-                  item.highlight && "bg-blue-900/5 border-l-4 border-blue-500",
+                  "grid grid-cols-5 gap-3 p-3 hover:bg-blue-900/10 transition-all duration-200",
+                  item.highlight && "bg-blue-900/5 border-l-2 border-blue-500",
                 )}
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-white font-medium">{item.feature}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-white font-medium text-sm">
+                    {item.feature}
+                  </span>
                   {item.highlight && (
-                    <Badge className="bg-blue-600/20 text-blue-400 text-xs">
+                    <Badge className="bg-blue-600/20 text-blue-400 text-xs px-2 py-0.5">
                       Advantage
                     </Badge>
                   )}
                 </div>
 
-                <div className="text-center bg-blue-900/20 rounded-lg py-2 px-3 border border-blue-600/30">
-                  {renderValue(item.prideFunding, true)}
+                <div className="text-center bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-lg py-2 px-2 border border-blue-500/40 shadow-lg shadow-blue-500/10 relative">
+                  <div className="absolute inset-0 bg-blue-400/5 rounded-lg"></div>
+                  <div className="relative">
+                    {renderValue(item.prideFunding, true)}
+                  </div>
                 </div>
 
-                <div className="text-center py-2 px-3">
+                <div className="text-center py-2 px-2 bg-gray-700/10 rounded">
                   {renderValue(item.ftmo)}
                 </div>
 
-                <div className="text-center py-2 px-3">
+                <div className="text-center py-2 px-2 bg-gray-700/10 rounded">
                   {renderValue(item.fundedNext)}
                 </div>
 
-                <div className="text-center py-2 px-3">
+                <div className="text-center py-2 px-2 bg-gray-700/10 rounded">
                   {renderValue(item.fundingPips)}
                 </div>
               </div>
