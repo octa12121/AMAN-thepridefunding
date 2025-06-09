@@ -137,211 +137,206 @@ export const PayoutOptions = ({
                   </div>
                 </div>
 
-                {/* Transaction Screenshots */}
-                {option.id === "rise" ? (
-                  <div
-                    className="mt-6 rounded-lg border backdrop-blur-sm overflow-hidden"
-                    style={{
-                      backgroundColor: "rgba(0, 0, 0, 0.3)",
-                      borderColor: "rgba(132, 154, 170, 0.3)",
-                    }}
-                  >
-                    {/* Rise Transaction Header */}
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 border-b border-blue-500/30">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <RiseworkLogo
-                            className="h-5 w-5 text-white"
-                            size={20}
-                          />
-                          <span className="text-white font-semibold text-sm">
-                            Rise Transfer
-                          </span>
-                        </div>
-                        <CheckCircle className="h-4 w-4 text-green-400" />
-                      </div>
-                    </div>
-
-                    {/* Rise Transaction Details */}
-                    <div className="p-4 space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">
-                          Transaction ID
-                        </span>
-                        <span className="text-white text-sm font-mono">
-                          #RSE789456
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">Amount</span>
-                        <span className="text-green-400 text-lg font-bold">
-                          $2,847.50
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">Recipient</span>
-                        <span className="text-white text-sm">
-                          John Trader ****2847
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">Date</span>
-                        <span className="text-white text-sm">
-                          Dec 15, 2024 14:32
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">Status</span>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                          <span className="text-green-400 text-sm font-medium">
-                            Completed
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Processing Time */}
-                      <div className="mt-4 pt-3 border-t border-gray-600/30">
-                        <div className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-blue-400" />
-                          <span className="text-blue-400 text-xs">
-                            Processed in 2.3 seconds
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Footer */}
-                    <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 px-4 py-2 border-t border-green-600/20">
-                      <div className="flex items-center gap-2 justify-center">
-                        <CheckCircle className="h-3 w-3 text-green-400" />
-                        <span className="text-green-400 text-xs font-medium">
-                          Verified & Secure Transfer
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  /* Crypto Transaction Screenshot */
-                  <div
-                    className="mt-6 rounded-lg border backdrop-blur-sm overflow-hidden"
-                    style={{
-                      backgroundColor: "rgba(0, 0, 0, 0.3)",
-                      borderColor: "rgba(132, 154, 170, 0.3)",
-                    }}
-                  >
-                    {/* Crypto Transaction Header */}
-                    <div className="bg-gradient-to-r from-orange-600 to-orange-700 px-4 py-3 border-b border-orange-500/30">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Bitcoin className="h-5 w-5 text-white" />
-                          <span className="text-white font-semibold text-sm">
-                            Bitcoin Transfer
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                          <span className="text-orange-200 text-xs">
-                            Confirmed
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Crypto Transaction Details */}
-                    <div className="p-4 space-y-3">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">
-                          Transaction Hash
-                        </span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-white text-xs font-mono">
-                            7a9b...c4e1
-                          </span>
-                          <Copy className="h-3 w-3 text-gray-400 hover:text-white cursor-pointer" />
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">Amount</span>
-                        <div className="text-right">
-                          <div className="text-orange-400 text-lg font-bold">
-                            ₿0.06847
+                {/* Standardized Transaction Screenshot Container */}
+                <div
+                  className="mt-6 rounded-lg border backdrop-blur-sm overflow-hidden h-80"
+                  style={{
+                    backgroundColor: "rgba(0, 0, 0, 0.3)",
+                    borderColor: "rgba(132, 154, 170, 0.3)",
+                  }}
+                >
+                  {option.id === "rise" ? (
+                    <>
+                      {/* Rise Transaction Header */}
+                      <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 border-b border-blue-500/30 h-14 flex items-center">
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center gap-2">
+                            <RiseworkLogo
+                              className="h-5 w-5 text-white"
+                              size={20}
+                            />
+                            <span className="text-white font-semibold text-sm">
+                              Rise Transfer
+                            </span>
                           </div>
-                          <div className="text-gray-400 text-xs">
-                            ≈ $2,847.50 USD
+                          <CheckCircle className="h-4 w-4 text-green-400" />
+                        </div>
+                      </div>
+
+                      {/* Rise Transaction Content */}
+                      <div className="p-4 flex-1 h-52 flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Transaction ID
+                            </span>
+                            <span className="text-white text-sm font-mono">
+                              #RSE789456
+                            </span>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Amount
+                            </span>
+                            <span className="text-green-400 text-lg font-bold">
+                              $2,847.50
+                            </span>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Recipient
+                            </span>
+                            <span className="text-white text-sm">
+                              John Trader ****2847
+                            </span>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">Date</span>
+                            <span className="text-white text-sm">
+                              Dec 15, 2024 14:32
+                            </span>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Status
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                              <span className="text-green-400 text-sm font-medium">
+                                Completed
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Processing Time */}
+                        <div className="pt-3 border-t border-gray-600/30">
+                          <div className="flex items-center gap-2">
+                            <Clock className="h-4 w-4 text-blue-400" />
+                            <span className="text-blue-400 text-xs">
+                              Processed in 2.3 seconds
+                            </span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">
-                          To Address
-                        </span>
+                      {/* Footer */}
+                      <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 px-4 py-2 border-t border-green-600/20 h-10 flex items-center justify-center">
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-xs font-mono">
-                            bc1q...7x8z
+                          <CheckCircle className="h-3 w-3 text-green-400" />
+                          <span className="text-green-400 text-xs font-medium">
+                            Verified & Secure Transfer
                           </span>
-                          <Copy className="h-3 w-3 text-gray-400 hover:text-white cursor-pointer" />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Crypto Transaction Header */}
+                      <div className="bg-gradient-to-r from-orange-600 to-orange-700 px-4 py-3 border-b border-orange-500/30 h-14 flex items-center">
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex items-center gap-2">
+                            <Bitcoin className="h-5 w-5 text-white" />
+                            <span className="text-white font-semibold text-sm">
+                              Bitcoin Transfer
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                            <span className="text-orange-200 text-xs">
+                              Confirmed
+                            </span>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">
-                          Network Fee
-                        </span>
-                        <span className="text-white text-sm">
-                          ₿0.00012 ($5.02)
-                        </span>
+                      {/* Crypto Transaction Content */}
+                      <div className="p-4 flex-1 h-52 flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Transaction Hash
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-white text-xs font-mono">
+                                7a9b...c4e1
+                              </span>
+                              <Copy className="h-3 w-3 text-gray-400 hover:text-white cursor-pointer" />
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Amount
+                            </span>
+                            <div className="text-right">
+                              <div className="text-orange-400 text-lg font-bold">
+                                ₿0.06847
+                              </div>
+                              <div className="text-gray-400 text-xs">
+                                ≈ $2,847.50 USD
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              To Address
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-white text-xs font-mono">
+                                bc1q...7x8z
+                              </span>
+                              <Copy className="h-3 w-3 text-gray-400 hover:text-white cursor-pointer" />
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Network Fee
+                            </span>
+                            <span className="text-white text-sm">
+                              ₿0.00012 ($5.02)
+                            </span>
+                          </div>
+
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-sm">
+                              Confirmations
+                            </span>
+                            <span className="text-green-400 text-sm font-medium">
+                              6/6
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Transaction Time */}
+                        <div className="pt-3 border-t border-gray-600/30">
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-400 text-xs">
+                              Dec 15, 2024 14:28:42 UTC
+                            </span>
+                            <ExternalLink className="h-3 w-3 text-gray-400 hover:text-white cursor-pointer" />
+                          </div>
+                        </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">
-                          Confirmations
-                        </span>
-                        <span className="text-green-400 text-sm font-medium">
-                          6/6
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-400 text-sm">
-                          Block Height
-                        </span>
+                      {/* Crypto Footer */}
+                      <div className="bg-gradient-to-r from-orange-900/20 to-orange-800/20 px-4 py-2 border-t border-orange-600/20 h-10 flex items-center justify-center">
                         <div className="flex items-center gap-2">
-                          <span className="text-white text-sm">824,156</span>
-                          <ExternalLink className="h-3 w-3 text-gray-400 hover:text-white cursor-pointer" />
-                        </div>
-                      </div>
-
-                      {/* Transaction Time */}
-                      <div className="mt-4 pt-3 border-t border-gray-600/30">
-                        <div className="flex items-center justify-between">
-                          <span className="text-gray-400 text-xs">
-                            Timestamp
-                          </span>
-                          <span className="text-white text-xs">
-                            Dec 15, 2024 14:28:42 UTC
+                          <CheckCircle className="h-3 w-3 text-orange-400" />
+                          <span className="text-orange-400 text-xs font-medium">
+                            Blockchain Verified • Immutable
                           </span>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Crypto Footer */}
-                    <div className="bg-gradient-to-r from-orange-900/20 to-orange-800/20 px-4 py-2 border-t border-orange-600/20">
-                      <div className="flex items-center gap-2 justify-center">
-                        <CheckCircle className="h-3 w-3 text-orange-400" />
-                        <span className="text-orange-400 text-xs font-medium">
-                          Blockchain Verified • Immutable
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    </>
+                  )}
+                </div>
               </Card>
             );
           })}
