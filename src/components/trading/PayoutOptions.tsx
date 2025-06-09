@@ -110,12 +110,7 @@ export const PayoutOptions = ({
                 <div className="flex items-start gap-4">
                   <div
                     className="p-3 rounded-full group-hover:scale-110 transition-transform duration-300"
-                    style={{
-                      backgroundColor:
-                        option.icon === "crypto"
-                          ? "rgba(239, 95, 13, 1)"
-                          : "rgb(10, 124, 255)",
-                    }}
+                    style={{ backgroundColor: "rgba(10, 124, 255, 1)" }}
                   >
                     {option.icon === "bank" ? (
                       <RiseworkLogo className="h-8 w-8 text-white" size={32} />
@@ -247,8 +242,11 @@ export const PayoutOptions = ({
                     </>
                   ) : (
                     <>
-                      {/* Crypto Transaction Header */}
-                      <div className="bg-gradient-to-r from-orange-600 to-orange-700 px-4 py-3 border-b border-orange-500/30 h-14 flex items-center">
+                      {/* Crypto Transaction Header - Changed to blue */}
+                      <div
+                        className="px-4 py-3 border-b border-blue-500/30 h-14 flex items-center"
+                        style={{ backgroundColor: "rgba(10, 124, 255, 1)" }}
+                      >
                         <div className="flex items-center justify-between w-full">
                           <div className="flex items-center gap-2">
                             <Bitcoin className="h-5 w-5 text-white" />
@@ -257,8 +255,8 @@ export const PayoutOptions = ({
                             </span>
                           </div>
                           <div className="flex items-center gap-1">
-                            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                            <span className="text-orange-200 text-xs">
+                            <div className="w-2 h-2 bg-blue-200 rounded-full animate-pulse"></div>
+                            <span className="text-blue-200 text-xs">
                               Confirmed
                             </span>
                           </div>
@@ -285,7 +283,7 @@ export const PayoutOptions = ({
                               Amount
                             </span>
                             <div className="text-right">
-                              <div className="text-orange-400 text-lg font-bold">
+                              <div className="text-blue-400 text-lg font-bold">
                                 ₿0.06847
                               </div>
                               <div className="text-gray-400 text-xs">
@@ -336,11 +334,14 @@ export const PayoutOptions = ({
                         </div>
                       </div>
 
-                      {/* Crypto Footer */}
-                      <div className="bg-gradient-to-r from-orange-900/20 to-orange-800/20 px-4 py-2 border-t border-orange-600/20 h-10 flex items-center justify-center">
+                      {/* Crypto Footer - Changed to dark blue */}
+                      <div
+                        className="px-4 py-2 border-t border-blue-600/20 h-10 flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(2, 8, 23, 1)" }}
+                      >
                         <div className="flex items-center gap-2">
-                          <CheckCircle className="h-3 w-3 text-orange-400" />
-                          <span className="text-orange-400 text-xs font-medium">
+                          <CheckCircle className="h-3 w-3 text-blue-400" />
+                          <span className="text-blue-400 text-xs font-medium">
                             Blockchain Verified • Immutable
                           </span>
                         </div>
