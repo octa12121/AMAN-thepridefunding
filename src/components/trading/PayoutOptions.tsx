@@ -109,22 +109,13 @@ export const PayoutOptions = ({
               >
                 <div className="flex items-start gap-4">
                   <div
-                    className="p-3 rounded-full group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: "rgb(10, 124, 255)" }}
-                  >
-                    {option.icon === "bank" ? (
+                  <div className="p-3 rounded-full group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: option.icon === 'crypto' ? 'rgba(239, 95, 13, 1)' : 'rgb(10, 124, 255)' }}>
+                    {option.icon === 'bank' ? (
                       <RiseworkLogo className="h-8 w-8 text-white" size={32} />
                     ) : (
                       <Icon className="h-8 w-8 text-white" />
                     )}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-3 text-white">
-                      {option.title}
-                    </h3>
-                    <p className="text-gray-300 mb-4 leading-relaxed text-lg">
-                      {renderDescription(option.description)}
-                    </p>
                     <div className="flex flex-wrap gap-2">
                       {option.features.map((feature, index) => (
                         <Badge
