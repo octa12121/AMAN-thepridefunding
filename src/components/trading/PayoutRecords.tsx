@@ -106,21 +106,39 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
                     }}
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <Avatar
-                        className="h-10 w-10 border-2"
-                        style={{ borderColor: "rgb(10, 124, 255)" }}
-                      >
-                        <AvatarImage src={record.avatar} />
-                        <AvatarFallback
-                          className="text-white text-sm"
-                          style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                      {/* Enhanced Avatar with Bitmoji */}
+                      <div className="relative">
+                        <Avatar
+                          className="h-10 w-10 border-2"
+                          style={{ borderColor: "rgb(10, 124, 255)" }}
                         >
-                          {record.trader
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </AvatarFallback>
-                      </Avatar>
+                          {record.avatar ? (
+                            <AvatarImage src={record.avatar} />
+                          ) : null}
+                          <AvatarFallback
+                            className="text-white text-sm"
+                            style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                          >
+                            {record.bitmoji ? (
+                              <span className="text-lg">{record.bitmoji}</span>
+                            ) : (
+                              record.trader
+                                .split(" ")
+                                .map((n) => n[0])
+                                .join("")
+                            )}
+                          </AvatarFallback>
+                        </Avatar>
+
+                        {/* Country flag overlay */}
+                        <div
+                          className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs border-2 border-gray-800"
+                          style={{ backgroundColor: "rgba(8, 7, 27, 0.9)" }}
+                        >
+                          {record.flag}
+                        </div>
+                      </div>
+
                       <div className="flex-1 min-w-0">
                         <div className="text-2xl font-bold text-green-400 mb-1">
                           {record.amount}
@@ -166,21 +184,41 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
                       }}
                     >
                       <div className="flex items-center gap-3 mb-3">
-                        <Avatar
-                          className="h-10 w-10 border-2"
-                          style={{ borderColor: "rgb(10, 124, 255)" }}
-                        >
-                          <AvatarImage src={record.avatar} />
-                          <AvatarFallback
-                            className="text-white text-sm"
-                            style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                        {/* Enhanced Avatar with Bitmoji */}
+                        <div className="relative">
+                          <Avatar
+                            className="h-10 w-10 border-2"
+                            style={{ borderColor: "rgb(10, 124, 255)" }}
                           >
-                            {record.trader
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")}
-                          </AvatarFallback>
-                        </Avatar>
+                            {record.avatar ? (
+                              <AvatarImage src={record.avatar} />
+                            ) : null}
+                            <AvatarFallback
+                              className="text-white text-sm"
+                              style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                            >
+                              {record.bitmoji ? (
+                                <span className="text-lg">
+                                  {record.bitmoji}
+                                </span>
+                              ) : (
+                                record.trader
+                                  .split(" ")
+                                  .map((n) => n[0])
+                                  .join("")
+                              )}
+                            </AvatarFallback>
+                          </Avatar>
+
+                          {/* Country flag overlay */}
+                          <div
+                            className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs border-2 border-gray-800"
+                            style={{ backgroundColor: "rgba(8, 7, 27, 0.9)" }}
+                          >
+                            {record.flag}
+                          </div>
+                        </div>
+
                         <div className="flex-1 min-w-0">
                           <div className="text-2xl font-bold text-green-400 mb-1">
                             {record.amount}
@@ -237,21 +275,39 @@ export const PayoutRecords = ({ records }: PayoutRecordsProps) => {
                 }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <Avatar
-                    className="h-10 w-10 border-2"
-                    style={{ borderColor: "rgb(10, 124, 255)" }}
-                  >
-                    <AvatarImage src={record.avatar} />
-                    <AvatarFallback
-                      className="text-white text-sm"
-                      style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                  {/* Enhanced Avatar with Bitmoji */}
+                  <div className="relative">
+                    <Avatar
+                      className="h-10 w-10 border-2"
+                      style={{ borderColor: "rgb(10, 124, 255)" }}
                     >
-                      {record.trader
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
+                      {record.avatar ? (
+                        <AvatarImage src={record.avatar} />
+                      ) : null}
+                      <AvatarFallback
+                        className="text-white text-sm"
+                        style={{ backgroundColor: "rgb(24, 160, 237)" }}
+                      >
+                        {record.bitmoji ? (
+                          <span className="text-lg">{record.bitmoji}</span>
+                        ) : (
+                          record.trader
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")
+                        )}
+                      </AvatarFallback>
+                    </Avatar>
+
+                    {/* Country flag overlay */}
+                    <div
+                      className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-xs border-2 border-gray-800"
+                      style={{ backgroundColor: "rgba(8, 7, 27, 0.9)" }}
+                    >
+                      {record.flag}
+                    </div>
+                  </div>
+
                   <div className="flex-1 min-w-0">
                     <div className="text-2xl font-bold text-green-400 mb-1">
                       {record.amount}

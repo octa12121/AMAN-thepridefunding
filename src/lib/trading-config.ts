@@ -28,6 +28,7 @@ export interface PayoutRecord {
   country: string;
   flag: string;
   avatar?: string;
+  bitmoji?: string;
 }
 
 export interface TradingConfig {
