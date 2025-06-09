@@ -165,7 +165,7 @@ const renderValue = (
 export const ComparisonTable = () => {
   return (
     <div
-      className="w-full py-16 relative overflow-hidden"
+      className="w-full py-12 relative overflow-hidden"
       style={{ backgroundColor: "rgb(8, 7, 27)" }}
     >
       {/* Background effects */}
@@ -176,17 +176,17 @@ export const ComparisonTable = () => {
         <div className="w-full h-full rounded-full bg-gradient-to-l from-cyan-400 to-blue-600 blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Trophy className="h-4 w-4" />
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-blue-600/20 text-blue-400 px-3 py-1.5 rounded-full text-xs font-medium mb-4">
+            <Trophy className="h-3.5 w-3.5" />
             Comparison Analysis
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl font-bold text-white mb-3">
             Why Choose The-Pride Funding?
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-sm max-w-2xl mx-auto">
             See how we compare against the industry's leading prop trading
             firms. We're committed to providing the best trading conditions and
             fastest payouts.
