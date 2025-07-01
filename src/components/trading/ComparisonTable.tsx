@@ -29,20 +29,7 @@ const comparisonData: ComparisonItem[] = [
     fundedNext: "4%",
     fundingPips: "4%",
   },
-  {
-    feature: "Profit Target (Phase 1)",
-    prideFunding: "8%",
-    ftmo: "8%",
-    fundedNext: "8%",
-    fundingPips: "8%",
-  },
-  {
-    feature: "Profit Target (Phase 2)",
-    prideFunding: "5%",
-    ftmo: "5%",
-    fundedNext: "5%",
-    fundingPips: "5%",
-  },
+
   {
     feature: "Profit Split",
     prideFunding: "Up to 90%",
