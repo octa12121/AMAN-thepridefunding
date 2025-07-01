@@ -79,7 +79,7 @@ export const tradingConfig: TradingConfig = {
       amount: "$3,100",
       title: "FAILED 9TIMES BEFORE\nMY 1ST PAYOUT",
       subtitle: "first payout",
-      tags: ["Matthew"],
+      tags: ["Matthew", "CANADA"],
     },
   ],
   payoutOptions: {
