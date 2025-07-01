@@ -77,21 +77,7 @@ const comparisonData: ComparisonItem[] = [
     fundedNext: false,
     fundingPips: true,
   },
-  {
-    feature: "Minimum Trading Days",
-    prideFunding: "No Limit",
-    ftmo: "4 Days",
-    fundedNext: "5 Days",
-    fundingPips: "4 Days",
-    highlight: true,
-  },
-  {
-    feature: "Maximum Trading Days",
-    prideFunding: "Unlimited",
-    ftmo: "Unlimited",
-    fundedNext: "Unlimited",
-    fundingPips: "Unlimited",
-  },
+
   {
     feature: "Copy Trading",
     prideFunding: true,
