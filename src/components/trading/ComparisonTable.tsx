@@ -86,14 +86,7 @@ const comparisonData: ComparisonItem[] = [
     fundingPips: false,
     highlight: true,
   },
-  {
-    feature: "Scaling Plan",
-    prideFunding: "25% every 4 months",
-    ftmo: "10% every 4 months",
-    fundedNext: "20% every 4 months",
-    fundingPips: "10% every 6 months",
-    highlight: true,
-  },
+
   {
     feature: "Refund on First Payout",
     prideFunding: true,
